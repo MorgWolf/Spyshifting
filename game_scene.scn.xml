@@ -4,7 +4,7 @@
 	<ext_resource path="res://icon.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://tile-collision-rect.res.xml" type="Shape2D" index="1"></ext_resource>
 	<resource type="GDScript" path="local://4">
-		<string name="script/source"> "extends KinematicBody2D&#000a;&#000a;var dir = &quot;down&quot;&#000a;var ani = false&#000a;&#000a;func _ready():&#000a;&#0009;self.set_process(true)&#000a;&#000a;func _process(delta):&#000a;&#000a;&#0009;&#000a;&#0009;var v = 64 * 3 # pixels per second. one tile is 16 px&#000a;&#0009;&#000a;&#0009;var vel = Vector2(0, 0)&#000a;&#0009;if(Input.is_key_pressed(KEY_DOWN)):&#000a;&#0009;&#0009;#self.set_sprite_frames(load(&quot;res://Artwork/catchdroid-assets/player-down.res&quot;))&#000a;&#0009;&#0009;vel.y += v&#000a;&#0009;&#0009;dir = &quot;down&quot;&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_UP)):&#000a;&#0009;&#0009;#self.set_sprite_frames(load(&quot;res://Artwork/catchdroid-assets/player-up.res&quot;))&#000a;&#0009;&#0009;vel.y -= v&#000a;&#0009;&#0009;dir = &quot;up&quot;&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_LEFT)):&#000a;&#0009;&#0009;#self.set_sprite_frames(load(&quot;res://Artwork/catchdroid-assets/player-down.res&quot;))&#000a;&#0009;&#0009;vel.x -= v&#000a;&#0009;&#0009;dir = &quot;down&quot;&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_RIGHT)):&#000a;&#0009;&#0009;#self.set_sprite_frames(load(&quot;res://Artwork/catchdroid-assets/player-up.res&quot;))&#000a;&#0009;&#0009;vel.x += v&#000a;&#0009;&#0009;dir = &quot;up&quot;&#000a;&#0009;&#0009;ani = true&#000a;&#0009;&#000a;&#0009;if vel.x == 0 and vel.y == 0:&#000a;&#0009;&#0009;#sf.add_frame(load(&quot;res://Artwork/catchdroid-assets/player-&quot; + dir + &quot;-0.atex&quot;))&#000a;&#0009;&#0009;ani = false&#000a;&#000a;&#0009;#self.set_linear_velocity(vel)&#000a;&#0009;move(vel * delta)&#000a;&#000a;&#0009;if ani:&#000a;&#0009;&#0009;var f = (OS.get_ticks_msec() / 250) % 2&#0009;&#000a;&#0009;&#0009;#self.set_frame(f)&#000a;&#0009;&#0009;#set_pos(Vector2(get_pos().x + vel.x, get_pos().y + vel.y))&#000a;&#000a;&#0009;#else:&#000a;&#0009;&#0009;#self.set_frame(0)&#000a;&#0009;&#000a;" </string>
+		<string name="script/source"> "extends KinematicBody2D&#000a;&#000a;var dir = 2&#000a;var ani = false&#000a;&#000a;func _ready():&#000a;&#0009;self.set_process(true)&#000a;&#000a;func _process(delta):&#000a;&#0009;var sprite = self.get_child(0)&#000a;&#0009;&#000a;&#0009;var v = 64 * 1.5 # pixels per second. one tile is 16 px&#000a;&#0009;&#000a;&#0009;var vel = Vector2(0, 0)&#000a;&#0009;if(Input.is_key_pressed(KEY_DOWN)):&#000a;&#0009;&#0009;vel.y += v&#000a;&#0009;&#0009;dir = 0&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_UP)):&#000a;&#0009;&#0009;vel.y -= v&#000a;&#0009;&#0009;dir = 0&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_LEFT)):&#000a;&#0009;&#0009;vel.x -= v&#000a;&#0009;&#0009;dir = 3&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_RIGHT)):&#000a;&#0009;&#0009;vel.x += v&#000a;&#0009;&#0009;dir = 1&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if Input.is_key_pressed(KEY_ESCAPE):&#000a;&#0009;&#0009;get_tree().quit()&#000a;&#000a;&#0009;if vel.x == 0 and vel.y == 0:&#000a;&#0009;&#0009;ani = false&#000a;&#000a;&#0009;move(vel * delta)&#000a;&#000a;&#0009;var ms_per_frame&#000a;&#0009;if ani:&#000a;&#0009;&#0009;sprite.move_ani(dir)&#000a;&#0009;&#0009;ms_per_frame = 100&#000a;&#0009;else:&#000a;&#0009;&#0009;sprite.idle_ani(dir)&#000a;&#0009;&#0009;ms_per_frame = 250&#000a;&#0009;var f = (OS.get_ticks_msec() / ms_per_frame) % sprite.get_frame_count()&#000a;&#0009;sprite.set_frame(f)&#000a;" </string>
 
 	</resource>
 	<resource type="SpriteFrames" path="local://3">
@@ -14,7 +14,7 @@
 
 	</resource>
 	<resource type="GDScript" path="local://2">
-		<string name="script/source"> "extends AnimatedSprite&#000a;" </string>
+		<string name="script/source"> "extends AnimatedSprite&#000a;&#000a;var frame_count = 1&#000a;var tex = null&#000a;&#000a;func _init():&#000a;&#0009;tex = load(&quot;res://Artwork/sprites/mc-spritesheet.png&quot;)&#000a;&#000a;func idle_ani(dir):&#000a;&#0009;ani(tex, dir, 0, 6)&#000a;&#0009;&#000a;func move_ani(dir):&#000a;&#0009;ani(tex, dir, 1, 4)&#000a;&#000a;&#000a;func ani(tex, dir, move, framecount):&#000a;&#0009;var frs = self.get_sprite_frames()&#000a;&#0009;frs.clear()&#000a;&#0009;for i in range(0, framecount):&#000a;&#0009;&#0009;var atlas = AtlasTexture.new()&#000a;&#0009;&#0009;atlas.set_atlas(tex)&#000a;&#0009;&#0009;atlas.set_region(Rect2(i * 64, (dir * 2 + move) * 64, 64, 64))&#000a;&#0009;&#0009;frs.add_frame(atlas)&#000a;&#0009;frame_count = framecount&#000a;&#000a;func get_frame_count():&#000a;&#0009;return frame_count&#000a;" </string>
 
 	</resource>
 	<main_resource>
@@ -27,7 +27,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="41">
+			<string_array  len="42">
 				<string> "GraphNode" </string>
 				<string> "margin/right" </string>
 				<string> "margin/bottom" </string>
@@ -66,6 +66,7 @@
 				<string> "frames" </string>
 				<string> "centered" </string>
 				<string> "CollisionShape2D" </string>
+				<string> "visibility/visible" </string>
 				<string> "shape" </string>
 				<string> "trigger" </string>
 				<string> "_update_shape_index" </string>
@@ -76,9 +77,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="115"> 				-1, -1, 0, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 4, 8, 2, 0, 0, 0, 9, 9, -1, 16, 10, 5, 11, 6, 12, 7, 13, 8, 14, 9, 15, 10, 16, 3, 17, 6, 18, 2, 19, 11, 20, 12, 21, 13, 22, 14, 23, 14, 24, 14, 25, 15, 0, 0, 0, 33, 26, -1, 9, 10, 16, 27, 2, 28, 17, 29, 10, 30, 2, 22, 14, 23, 14, 31, 18, 32, 19, 0, 2, 0, 34, 34, -1, 4, 10, 20, 35, 21, 36, 2, 32, 22, 0, 2, 0, 37, 37, -1, 3, 38, 17, 39, 2, 40, 6, 0 </int_array>
+			<int_array  len="119"> 				-1, -1, 0, 0, -1, 8, 1, 0, 2, 1, 3, 2, 4, 2, 5, 3, 6, 3, 7, 4, 8, 2, 0, 0, 0, 9, 9, -1, 16, 10, 5, 11, 6, 12, 7, 13, 8, 14, 9, 15, 10, 16, 3, 17, 6, 18, 2, 19, 11, 20, 12, 21, 13, 22, 14, 23, 14, 24, 14, 25, 15, 0, 0, 0, 33, 26, -1, 9, 10, 16, 27, 2, 28, 17, 29, 18, 30, 2, 22, 14, 23, 14, 31, 19, 32, 20, 0, 2, 0, 34, 34, -1, 4, 10, 21, 35, 22, 36, 2, 32, 23, 0, 2, 0, 37, 37, -1, 5, 38, 2, 10, 24, 39, 17, 40, 2, 41, 6, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="23" shared="false">
+			<array  len="25" shared="false">
 				<real> 19 </real>
 				<real> 29 </real>
 				<bool> False </bool>
@@ -95,13 +96,15 @@
 				<real> 0 </real>
 				<int> 1 </int>
 				<int_array  len="648"> 					0, 9, 1, 9, 2, 9, 3, 9, 4, 9, 5, 9, 6, 9, 7, 9, 8, 9, 9, 9, 10, 9, 11, 9, 12, 9, 13, 9, 14, 9, 15, 9, 16, 9, 17, 9, 65536, 9, 65537, 9, 65538, 9, 65539, 9, 65540, 9, 65541, 9, 65542, 9, 65543, 9, 65544, 9, 65545, 9, 65546, 9, 65547, 9, 65548, 9, 65549, 9, 65550, 9, 65551, 9, 65552, 9, 65553, 9, 131072, 9, 131073, 9, 131074, 9, 131075, 9, 131076, 9, 131077, 9, 131078, 9, 131079, 9, 131080, 9, 131081, 9, 131082, 9, 131083, 9, 131084, 9, 131085, 9, 131086, 9, 131087, 9, 131088, 9, 131089, 9, 196608, 9, 196609, 9, 196610, 9, 196611, 9, 196612, 9, 196613, 9, 196614, 9, 196615, 9, 196616, 9, 196617, 9, 196618, 9, 196619, 9, 196620, 9, 196621, 9, 196622, 9, 196623, 9, 196624, 9, 196625, 9, 262144, 9, 262145, 9, 262146, 9, 262147, 9, 262148, 9, 262149, 9, 262150, 9, 262151, 9, 262152, 9, 262153, 9, 262154, 9, 262155, 9, 262156, 9, 262157, 9, 262158, 9, 262159, 9, 262160, 9, 262161, 9, 327680, 9, 327681, 9, 327682, 9, 327683, 9, 327684, 9, 327685, 9, 327686, 9, 327687, 9, 327688, 9, 327689, 9, 327690, 9, 327691, 9, 327692, 9, 327693, 9, 327694, 9, 327695, 9, 327696, 9, 327697, 9, 393216, 9, 393217, 9, 393218, 9, 393219, 9, 393220, 9, 393221, 9, 393222, 9, 393223, 9, 393224, 9, 393225, 9, 393226, 9, 393227, 9, 393228, 9, 393229, 9, 393230, 9, 393231, 9, 393232, 9, 393233, 9, 458752, 9, 458753, 9, 458754, 9, 458755, 9, 458756, 9, 458757, 9, 458758, 9, 458759, 9, 458760, 9, 458761, 9, 458762, 9, 458763, 9, 458764, 9, 458765, 9, 458766, 9, 458767, 9, 458768, 9, 458769, 9, 524288, 9, 524289, 9, 524290, 9, 524291, 9, 524292, 9, 524293, 9, 524294, 9, 524295, 9, 524296, 9, 524297, 9, 524298, 9, 524299, 9, 524300, 9, 524301, 9, 524302, 9, 524303, 9, 524304, 9, 524305, 9, 589824, 9, 589825, 9, 589826, 9, 589827, 9, 589828, 9, 589829, 2, 589830, 7, 589831, 7, 589832, 7, 589833, 7, 589834, 4, 589835, 9, 589836, 9, 589837, 9, 589838, 9, 589839, 9, 589840, 9, 589841, 9, 655360, 9, 655361, 9, 655362, 9, 655363, 9, 655364, 9, 655365, 8, 655366, 1, 655367, 1, 655368, 1, 655369, 1, 655370, 5, 655371, 9, 655372, 9, 655373, 9, 655374, 9, 655375, 9, 655376, 9, 655377, 9, 720896, 9, 720897, 9, 720898, 9, 720899, 9, 720900, 9, 720901, 8, 720902, 1, 720903, 1, 720904, 1, 720905, 1, 720906, 5, 720907, 9, 720908, 9, 720909, 9, 720910, 9, 720911, 9, 720912, 9, 720913, 9, 786432, 9, 786433, 9, 786434, 9, 786435, 9, 786436, 9, 786437, 3, 786438, 6, 786439, 6, 786440, 6, 786441, 6, 786442, 0, 786443, 9, 786444, 9, 786445, 9, 786446, 9, 786447, 9, 786448, 9, 786449, 9, 851968, 9, 851969, 9, 851970, 9, 851971, 9, 851972, 9, 851973, 9, 851974, 9, 851975, 9, 851976, 9, 851977, 9, 851978, 9, 851979, 9, 851980, 9, 851981, 9, 851982, 9, 851983, 9, 851984, 9, 851985, 9, 917504, 9, 917505, 9, 917506, 9, 917507, 9, 917508, 9, 917509, 9, 917510, 9, 917511, 9, 917512, 9, 917513, 9, 917514, 9, 917515, 9, 917516, 9, 917517, 9, 917518, 9, 917519, 9, 917520, 9, 917521, 9, 983040, 9, 983041, 9, 983042, 9, 983043, 9, 983044, 9, 983045, 9, 983046, 9, 983047, 9, 983048, 9, 983049, 9, 983050, 9, 983051, 9, 983052, 9, 983053, 9, 983054, 9, 983055, 9, 983056, 9, 983057, 9, 1048576, 9, 1048577, 9, 1048578, 9, 1048579, 9, 1048580, 9, 1048581, 9, 1048582, 9, 1048583, 9, 1048584, 9, 1048585, 9, 1048586, 9, 1048587, 9, 1048588, 9, 1048589, 9, 1048590, 9, 1048591, 9, 1048592, 9, 1048593, 9, 1114112, 9, 1114113, 9, 1114114, 9, 1114115, 9, 1114116, 9, 1114117, 9, 1114118, 9, 1114119, 9, 1114120, 9, 1114121, 9, 1114122, 9, 1114123, 9, 1114124, 9, 1114125, 9, 1114126, 9, 1114127, 9, 1114128, 9, 1114129, 9 </int_array>
-				<vector2> 544, 480 </vector2>
+				<vector2> 352, 480 </vector2>
 				<resource  external="1">  </resource>
+				<matrix32> 1, -0, 0, 1, 3, 3 </matrix32>
 				<real> 0.08 </real>
 				<resource  resource_type="Script" path="local://4">  </resource>
 				<vector2> -32, -32 </vector2>
 				<resource  resource_type="SpriteFrames" path="local://3">  </resource>
 				<resource  resource_type="Script" path="local://2">  </resource>
+				<vector2> 3, 3 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
