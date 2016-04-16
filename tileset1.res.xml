@@ -1,123 +1,117 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="TileSet" subresource_count="2" version="2.0" version_name="Godot Engine v2.0.stable.official">
-	<ext_resource path="res://Artwork/temp/tiles1.png" type="Texture" index="0"></ext_resource>
+<resource_file type="TileSet" subresource_count="5" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://Artwork/tilemaps/test-tilemap/base-wall-set.png" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://Artwork/tilemaps/test-tilemap/base-tile-2.png" type="Texture" index="2"></ext_resource>
+	<ext_resource path="res://Artwork/tilemaps/test-tilemap/base-tile-1.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://tile-collision-rect.res.xml" type="Shape2D" index="0"></ext_resource>
 	<main_resource>
-		<string name="0/name"> "Ground" </string>
-		<resource name="0/texture" external="0">  </resource>
+		<string name="0/name"> "Wall-BottomRight" </string>
+		<resource name="0/texture" external="1">  </resource>
 		<vector2 name="0/tex_offset"> 0, 0 </vector2>
-		<resource name="0/material"></resource>		<rect2 name="0/region"> 0, 0, 16, 16 </rect2>
-		<vector2 name="0/occluder_offset"> 8, 8 </vector2>
-		<resource name="0/occluder"></resource>		<vector2 name="0/navigation_offset"> 8, 8 </vector2>
-		<resource name="0/navigation"></resource>		<vector2 name="0/shape_offset"> 0, 0 </vector2>
-		<array name="0/shapes" len="0" shared="false">
+		<resource name="0/material"></resource>		<rect2 name="0/region"> 0, 0, 64, 64 </rect2>
+		<vector2 name="0/occluder_offset"> 32, 32 </vector2>
+		<resource name="0/occluder"></resource>		<vector2 name="0/navigation_offset"> 32, 32 </vector2>
+		<resource name="0/navigation"></resource>		<vector2 name="0/shape_offset"> 32, 32 </vector2>
+		<array name="0/shapes" len="1" shared="false">
+			<resource  external="0">  </resource>
 		</array>
-		<string name="1/name"> "Road-V" </string>
-		<resource name="1/texture" external="0">  </resource>
+		<string name="1/name"> "Wall-Center" </string>
+		<resource name="1/texture" external="1">  </resource>
 		<vector2 name="1/tex_offset"> 0, 0 </vector2>
-		<resource name="1/material"></resource>		<rect2 name="1/region"> 16, 0, 16, 16 </rect2>
-		<vector2 name="1/occluder_offset"> 8, 8 </vector2>
-		<resource name="1/occluder"></resource>		<vector2 name="1/navigation_offset"> 8, 8 </vector2>
-		<resource name="1/navigation"></resource>		<vector2 name="1/shape_offset"> 0, 0 </vector2>
-		<array name="1/shapes" len="0" shared="false">
+		<resource name="1/material"></resource>		<rect2 name="1/region"> 64, 0, 64, 64 </rect2>
+		<vector2 name="1/occluder_offset"> 32, 32 </vector2>
+		<resource name="1/occluder"></resource>		<vector2 name="1/navigation_offset"> 32, 32 </vector2>
+		<resource name="1/navigation"></resource>		<vector2 name="1/shape_offset"> 32, 32 </vector2>
+		<array name="1/shapes" len="1" shared="false">
+			<resource  external="0">  </resource>
 		</array>
-		<string name="2/name"> "Road-H" </string>
-		<resource name="2/texture" external="0">  </resource>
+		<string name="2/name"> "Wall-TopLeft" </string>
+		<resource name="2/texture" external="1">  </resource>
 		<vector2 name="2/tex_offset"> 0, 0 </vector2>
-		<resource name="2/material"></resource>		<rect2 name="2/region"> 32, 0, 16, 16 </rect2>
-		<vector2 name="2/occluder_offset"> 8, 8 </vector2>
-		<resource name="2/occluder"></resource>		<vector2 name="2/navigation_offset"> 8, 8 </vector2>
-		<resource name="2/navigation"></resource>		<vector2 name="2/shape_offset"> 0, 0 </vector2>
-		<array name="2/shapes" len="0" shared="false">
+		<resource name="2/material"></resource>		<rect2 name="2/region"> 128, 0, 64, 64 </rect2>
+		<vector2 name="2/occluder_offset"> 32, 32 </vector2>
+		<resource name="2/occluder"></resource>		<vector2 name="2/navigation_offset"> 32, 32 </vector2>
+		<resource name="2/navigation"></resource>		<vector2 name="2/shape_offset"> 32, 32 </vector2>
+		<array name="2/shapes" len="1" shared="false">
+			<resource  external="0">  </resource>
 		</array>
-		<string name="3/name"> "Roof-L" </string>
-		<resource name="3/texture" external="0">  </resource>
+		<string name="3/name"> "Wall-BottomLeft" </string>
+		<resource name="3/texture" external="1">  </resource>
 		<vector2 name="3/tex_offset"> 0, 0 </vector2>
-		<resource name="3/material"></resource>		<rect2 name="3/region"> 0, 16, 16, 16 </rect2>
-		<vector2 name="3/occluder_offset"> 8, 8 </vector2>
-		<resource name="3/occluder"></resource>		<vector2 name="3/navigation_offset"> 8, 8 </vector2>
-		<resource name="3/navigation"></resource>		<vector2 name="3/shape_offset"> 0, 0 </vector2>
-		<array name="3/shapes" len="0" shared="false">
+		<resource name="3/material"></resource>		<rect2 name="3/region"> 0, 64, 64, 64 </rect2>
+		<vector2 name="3/occluder_offset"> 32, 32 </vector2>
+		<resource name="3/occluder"></resource>		<vector2 name="3/navigation_offset"> 32, 32 </vector2>
+		<resource name="3/navigation"></resource>		<vector2 name="3/shape_offset"> 32, 32 </vector2>
+		<array name="3/shapes" len="1" shared="false">
+			<resource  external="0">  </resource>
 		</array>
-		<string name="4/name"> "Roof-M1" </string>
-		<resource name="4/texture" external="0">  </resource>
+		<string name="4/name"> "Wall-TopRight" </string>
+		<resource name="4/texture" external="1">  </resource>
 		<vector2 name="4/tex_offset"> 0, 0 </vector2>
-		<resource name="4/material"></resource>		<rect2 name="4/region"> 16, 16, 16, 16 </rect2>
-		<vector2 name="4/occluder_offset"> 8, 8 </vector2>
-		<resource name="4/occluder"></resource>		<vector2 name="4/navigation_offset"> 8, 8 </vector2>
-		<resource name="4/navigation"></resource>		<vector2 name="4/shape_offset"> 0, 0 </vector2>
-		<array name="4/shapes" len="0" shared="false">
+		<resource name="4/material"></resource>		<rect2 name="4/region"> 64, 64, 64, 64 </rect2>
+		<vector2 name="4/occluder_offset"> 32, 32 </vector2>
+		<resource name="4/occluder"></resource>		<vector2 name="4/navigation_offset"> 32, 32 </vector2>
+		<resource name="4/navigation"></resource>		<vector2 name="4/shape_offset"> 32, 32 </vector2>
+		<array name="4/shapes" len="1" shared="false">
+			<resource  external="0">  </resource>
 		</array>
-		<string name="5/name"> "Roof-M2" </string>
-		<resource name="5/texture" external="0">  </resource>
+		<string name="5/name"> "Wall-Right" </string>
+		<resource name="5/texture" external="1">  </resource>
 		<vector2 name="5/tex_offset"> 0, 0 </vector2>
-		<resource name="5/material"></resource>		<rect2 name="5/region"> 32, 16, 16, 16 </rect2>
-		<vector2 name="5/occluder_offset"> 8, 8 </vector2>
-		<resource name="5/occluder"></resource>		<vector2 name="5/navigation_offset"> 8, 8 </vector2>
-		<resource name="5/navigation"></resource>		<vector2 name="5/shape_offset"> 0, 0 </vector2>
-		<array name="5/shapes" len="0" shared="false">
+		<resource name="5/material"></resource>		<rect2 name="5/region"> 128, 64, 64, 64 </rect2>
+		<vector2 name="5/occluder_offset"> 32, 32 </vector2>
+		<resource name="5/occluder"></resource>		<vector2 name="5/navigation_offset"> 32, 32 </vector2>
+		<resource name="5/navigation"></resource>		<vector2 name="5/shape_offset"> 32, 32 </vector2>
+		<array name="5/shapes" len="1" shared="false">
+			<resource  external="0">  </resource>
 		</array>
-		<string name="6/name"> "Roof-M3" </string>
-		<resource name="6/texture" external="0">  </resource>
+		<string name="6/name"> "Wall-Bottom" </string>
+		<resource name="6/texture" external="1">  </resource>
 		<vector2 name="6/tex_offset"> 0, 0 </vector2>
-		<resource name="6/material"></resource>		<rect2 name="6/region"> 48, 16, 16, 16 </rect2>
-		<vector2 name="6/occluder_offset"> 8, 8 </vector2>
-		<resource name="6/occluder"></resource>		<vector2 name="6/navigation_offset"> 8, 8 </vector2>
-		<resource name="6/navigation"></resource>		<vector2 name="6/shape_offset"> 0, 0 </vector2>
-		<array name="6/shapes" len="0" shared="false">
+		<resource name="6/material"></resource>		<rect2 name="6/region"> 0, 128, 64, 64 </rect2>
+		<vector2 name="6/occluder_offset"> 32, 32 </vector2>
+		<resource name="6/occluder"></resource>		<vector2 name="6/navigation_offset"> 32, 32 </vector2>
+		<resource name="6/navigation"></resource>		<vector2 name="6/shape_offset"> 32, 32 </vector2>
+		<array name="6/shapes" len="1" shared="false">
+			<resource  external="0">  </resource>
 		</array>
-		<string name="7/name"> "Roof-R" </string>
-		<resource name="7/texture" external="0">  </resource>
+		<string name="7/name"> "Wall-Top" </string>
+		<resource name="7/texture" external="1">  </resource>
 		<vector2 name="7/tex_offset"> 0, 0 </vector2>
-		<resource name="7/material"></resource>		<rect2 name="7/region"> 64, 16, 16, 16 </rect2>
-		<vector2 name="7/occluder_offset"> 8, 8 </vector2>
-		<resource name="7/occluder"></resource>		<vector2 name="7/navigation_offset"> 8, 8 </vector2>
-		<resource name="7/navigation"></resource>		<vector2 name="7/shape_offset"> 0, 0 </vector2>
-		<array name="7/shapes" len="0" shared="false">
+		<resource name="7/material"></resource>		<rect2 name="7/region"> 128, 128, 64, 64 </rect2>
+		<vector2 name="7/occluder_offset"> 32, 32 </vector2>
+		<resource name="7/occluder"></resource>		<vector2 name="7/navigation_offset"> 32, 32 </vector2>
+		<resource name="7/navigation"></resource>		<vector2 name="7/shape_offset"> 32, 32 </vector2>
+		<array name="7/shapes" len="1" shared="false">
+			<resource  external="0">  </resource>
 		</array>
-		<string name="8/name"> "Wall-L" </string>
-		<resource name="8/texture" external="0">  </resource>
+		<string name="8/name"> "Wall-Left" </string>
+		<resource name="8/texture" external="1">  </resource>
 		<vector2 name="8/tex_offset"> 0, 0 </vector2>
-		<resource name="8/material"></resource>		<rect2 name="8/region"> 0, 32, 16, 16 </rect2>
-		<vector2 name="8/occluder_offset"> 8, 8 </vector2>
-		<resource name="8/occluder"></resource>		<vector2 name="8/navigation_offset"> 8, 8 </vector2>
-		<resource name="8/navigation"></resource>		<vector2 name="8/shape_offset"> 0, 0 </vector2>
-		<array name="8/shapes" len="0" shared="false">
+		<resource name="8/material"></resource>		<rect2 name="8/region"> 64, 128, 64, 64 </rect2>
+		<vector2 name="8/occluder_offset"> 32, 32 </vector2>
+		<resource name="8/occluder"></resource>		<vector2 name="8/navigation_offset"> 32, 32 </vector2>
+		<resource name="8/navigation"></resource>		<vector2 name="8/shape_offset"> 32, 32 </vector2>
+		<array name="8/shapes" len="1" shared="false">
+			<resource  external="0">  </resource>
 		</array>
-		<string name="9/name"> "Wall-smudgy" </string>
-		<resource name="9/texture" external="0">  </resource>
+		<string name="9/name"> "Base-1" </string>
+		<resource name="9/texture" external="3">  </resource>
 		<vector2 name="9/tex_offset"> 0, 0 </vector2>
-		<resource name="9/material"></resource>		<rect2 name="9/region"> 16, 32, 16, 16 </rect2>
-		<vector2 name="9/occluder_offset"> 8, 8 </vector2>
-		<resource name="9/occluder"></resource>		<vector2 name="9/navigation_offset"> 8, 8 </vector2>
+		<resource name="9/material"></resource>		<rect2 name="9/region"> 0, 0, 64, 64 </rect2>
+		<vector2 name="9/occluder_offset"> 32, 32 </vector2>
+		<resource name="9/occluder"></resource>		<vector2 name="9/navigation_offset"> 32, 32 </vector2>
 		<resource name="9/navigation"></resource>		<vector2 name="9/shape_offset"> 0, 0 </vector2>
 		<array name="9/shapes" len="0" shared="false">
 		</array>
-		<string name="10/name"> "Wall-Door" </string>
-		<resource name="10/texture" external="0">  </resource>
+		<string name="10/name"> "Base-2" </string>
+		<resource name="10/texture" external="2">  </resource>
 		<vector2 name="10/tex_offset"> 0, 0 </vector2>
-		<resource name="10/material"></resource>		<rect2 name="10/region"> 32, 32, 16, 16 </rect2>
-		<vector2 name="10/occluder_offset"> 8, 8 </vector2>
-		<resource name="10/occluder"></resource>		<vector2 name="10/navigation_offset"> 8, 8 </vector2>
+		<resource name="10/material"></resource>		<rect2 name="10/region"> 0, 0, 64, 64 </rect2>
+		<vector2 name="10/occluder_offset"> 32, 32 </vector2>
+		<resource name="10/occluder"></resource>		<vector2 name="10/navigation_offset"> 32, 32 </vector2>
 		<resource name="10/navigation"></resource>		<vector2 name="10/shape_offset"> 0, 0 </vector2>
 		<array name="10/shapes" len="0" shared="false">
-		</array>
-		<string name="11/name"> "Wall-blank" </string>
-		<resource name="11/texture" external="0">  </resource>
-		<vector2 name="11/tex_offset"> 0, 0 </vector2>
-		<resource name="11/material"></resource>		<rect2 name="11/region"> 48, 32, 16, 16 </rect2>
-		<vector2 name="11/occluder_offset"> 8, 8 </vector2>
-		<resource name="11/occluder"></resource>		<vector2 name="11/navigation_offset"> 8, 8 </vector2>
-		<resource name="11/navigation"></resource>		<vector2 name="11/shape_offset"> 0, 0 </vector2>
-		<array name="11/shapes" len="0" shared="false">
-		</array>
-		<string name="12/name"> "Wall-R" </string>
-		<resource name="12/texture" external="0">  </resource>
-		<vector2 name="12/tex_offset"> 0, 0 </vector2>
-		<resource name="12/material"></resource>		<rect2 name="12/region"> 64, 32, 16, 16 </rect2>
-		<vector2 name="12/occluder_offset"> 8, 8 </vector2>
-		<resource name="12/occluder"></resource>		<vector2 name="12/navigation_offset"> 8, 8 </vector2>
-		<resource name="12/navigation"></resource>		<vector2 name="12/shape_offset"> 0, 0 </vector2>
-		<array name="12/shapes" len="0" shared="false">
 		</array>
 
 	</main_resource>
