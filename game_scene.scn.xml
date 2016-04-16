@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="14" version="2.0" version_name="Godot Engine v2.0.stable.official">
-	<ext_resource path="res://Artwork/sprites/lightmap.png" type="Texture" index="2"></ext_resource>
-	<ext_resource path="res://icon.png" type="Texture" index="1"></ext_resource>
+<resource_file type="PackedScene" subresource_count="13" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://player.gd" type="Script" index="1"></ext_resource>
+	<ext_resource path="res://character_sprite.gd" type="Script" index="3"></ext_resource>
+	<ext_resource path="res://Artwork/sprites/lightmap.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://icon.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://tileset1.res.xml" type="TileSet" index="0"></ext_resource>
-	<ext_resource path="res://guard.gd" type="Script" index="3"></ext_resource>
+	<ext_resource path="res://guard.gd" type="Script" index="5"></ext_resource>
 	<resource type="GDScript" path="local://16">
 		<string name="script/source"> "" </string>
 
@@ -39,20 +41,10 @@
 		<vector2 name="extents"> 10, 29.9429 </vector2>
 
 	</resource>
-	<resource type="GDScript" path="local://7">
-		<string name="resource/name"> "Player" </string>
-		<string name="script/source"> "extends KinematicBody2D&#000a;&#000a;var dir = 2&#000a;var ani = false&#000a;&#000a;func _ready():&#000a;&#0009;self.set_process(true)&#000a;&#000a;func _process(delta):&#000a;&#000a;&#0009;# get_parent().set_pos(Vector2(-get_pos().x + 8 * 64 - 32, -get_pos().y + 6 * 64 - 32))&#000a;&#000a;&#0009;var sprite = self.get_child(0)&#000a;&#000a;&#0009;var v = 64 * 1.5 # pixels per second. one tile is 16 px&#000a;&#000a;&#0009;var vel = Vector2(0, 0)&#000a;&#0009;if(Input.is_key_pressed(KEY_DOWN)):&#000a;&#0009;&#0009;vel.y += v&#000a;&#0009;&#0009;dir = 2&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_UP)):&#000a;&#0009;&#0009;vel.y -= v&#000a;&#0009;&#0009;dir = 0&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_LEFT)):&#000a;&#0009;&#0009;vel.x -= v&#000a;&#0009;&#0009;dir = 3&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_RIGHT)):&#000a;&#0009;&#0009;vel.x += v&#000a;&#0009;&#0009;dir = 1&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if Input.is_key_pressed(KEY_ESCAPE):&#000a;&#0009;&#0009;get_tree().quit()&#000a;&#0009;if Input.is_key_pressed(KEY_PAUSE):&#000a;&#0009;&#0009;get_tree().set_pause(true)&#000a;&#0009;if Input.is_key_pressed(KEY_SPACE):&#000a;&#0009;&#0009;get_tree().set_pause(false)&#000a;&#000a;&#0009;if vel.x == 0 and vel.y == 0:&#000a;&#0009;&#0009;ani = false&#000a;&#000a;&#0009;move(vel * delta)&#000a;&#000a;&#000a;&#0009;if ani:&#000a;&#0009;&#0009;sprite.move_ani(dir)&#000a;&#0009;else:&#000a;&#0009;&#0009;sprite.idle_ani(dir)&#000a;" </string>
-
-	</resource>
 	<resource type="SpriteFrames" path="local://3">
 		<array name="frames" len="1" shared="false">
-			<resource  external="1">  </resource>
+			<resource  external="2">  </resource>
 		</array>
-
-	</resource>
-	<resource type="GDScript" path="local://8">
-		<string name="resource/name"> "CharacterSprite" </string>
-		<string name="script/source"> "extends AnimatedSprite&#000a;&#000a;var frame_count = 1&#000a;var tex = null&#000a;var ms_per_frame = 0&#000a;&#000a;func _init():&#000a;&#0009;tex = load(&quot;res://Artwork/sprites/mc-spritesheet.png&quot;)&#000a;&#000a;func _ready():&#000a;&#0009;set_process(true)&#000a;&#000a;func idle_ani(dir):&#000a;&#0009;ani(tex, dir, 0, 6)&#000a;&#0009;ms_per_frame = 250&#000a;&#000a;func move_ani(dir):&#000a;&#0009;ani(tex, dir, 4, 4)&#000a;&#0009;ms_per_frame = 100&#000a;&#000a;func ani(tex, dir, move, framecount):&#000a;&#0009;var frs = self.get_sprite_frames()&#000a;&#0009;frs.clear()&#000a;&#0009;for i in range(0, framecount):&#000a;&#0009;&#0009;var atlas = AtlasTexture.new()&#000a;&#0009;&#0009;atlas.set_atlas(tex)&#000a;&#0009;&#0009;atlas.set_region(Rect2(i * 64, (dir + move) * 64, 64, 64))&#000a;&#0009;&#0009;frs.add_frame(atlas)&#000a;&#0009;frame_count = framecount&#000a;&#000a;func get_frame_count():&#000a;&#0009;return frame_count&#000a;&#000a;func _process(delta):&#000a;&#0009;var f&#000a;&#0009;if ms_per_frame == 0:&#000a;&#0009;&#0009;f = 0&#000a;&#0009;else:&#000a;&#0009;&#0009;f = (OS.get_ticks_msec() / ms_per_frame) % get_frame_count()&#000a;&#0009;set_frame(f)&#000a;&#000a;" </string>
 
 	</resource>
 	<resource type="Curve2D" path="local://4">
@@ -61,11 +53,6 @@
 			<string> "points" </string>
 			<vector2_array  len="63"> 				0, 0, 0, 0, 2, -253, 0, 0, 0, 0, 165, -361, 0, 0, 0, 0, 326, -272, 0, 0, 0, 0, 325, -85, 0, 0, 0, 0, 272, 62, 0, 0, 0, 0, 1, 121, 0, 0, 0, 0, -183, 48, 0, 0, 0, 0, -304, 72, 0, 0, 0, 0, -435, 56, 0, 0, 0, 0, -536, 61, 0, 0, 0, 0, -608, 22, 0, 0, 0, 0, -518, 0, 0, 0, 0, 0, -377, -5, 0, 0, 0, 0, -340, -79, 0, 0, 0, 0, -360, -128, 0, 0, 0, 0, -371, -215, 0, 0, 0, 0, -280, -261, 0, 0, 0, 0, -157, -283, 0, 0, 0, 0, -92, -258, 0, 0, 0, 0, -32, -259, 0, 0, 0, 0, 2, -253 </vector2_array>
 		</dictionary>
-
-	</resource>
-	<resource type="GDScript" path="local://9">
-		<string name="resource/name"> "CharacterSprite" </string>
-		<string name="script/source"> "extends AnimatedSprite&#000a;&#000a;var frame_count = 1&#000a;var tex = null&#000a;var ms_per_frame = 0&#000a;&#000a;func _init():&#000a;&#0009;tex = load(&quot;res://Artwork/sprites/mc-spritesheet.png&quot;)&#000a;&#000a;func _ready():&#000a;&#0009;set_process(true)&#000a;&#000a;func idle_ani(dir):&#000a;&#0009;ani(tex, dir, 0, 6)&#000a;&#0009;ms_per_frame = 250&#000a;&#000a;func move_ani(dir):&#000a;&#0009;ani(tex, dir, 4, 4)&#000a;&#0009;ms_per_frame = 100&#000a;&#000a;func ani(tex, dir, move, framecount):&#000a;&#0009;var frs = SpriteFrames.new()&#000a;&#0009;set_sprite_frames(frs)&#000a;&#000a;&#0009;frs.clear()&#000a;&#0009;for i in range(0, framecount):&#000a;&#0009;&#0009;var atlas = AtlasTexture.new()&#000a;&#0009;&#0009;atlas.set_atlas(tex)&#000a;&#0009;&#0009;atlas.set_region(Rect2(i * 64, (dir + move) * 64, 64, 64))&#000a;&#0009;&#0009;frs.add_frame(atlas)&#000a;&#0009;frame_count = framecount&#000a;&#000a;func get_frame_count():&#000a;&#0009;return frame_count&#000a;&#000a;func _process(delta):&#000a;&#0009;var f&#000a;&#0009;if ms_per_frame == 0:&#000a;&#0009;&#0009;f = 0&#000a;&#0009;else:&#000a;&#0009;&#0009;f = (OS.get_ticks_msec() / ms_per_frame) % get_frame_count()&#000a;&#0009;set_frame(f)&#000a;&#000a;" </string>
 
 	</resource>
 	<main_resource>
@@ -78,7 +65,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="89">
+			<string_array  len="110">
 				<string> "Node2D" </string>
 				<string> "Navigation2D" </string>
 				<string> "script/script" </string>
@@ -157,9 +144,10 @@
 				<string> "drag_margin/top" </string>
 				<string> "drag_margin/right" </string>
 				<string> "drag_margin/bottom" </string>
-				<string> "Path2D" </string>
+				<string> "Guard" </string>
 				<string> "curve" </string>
-				<string> "Automove" </string>
+				<string> "Path2D" </string>
+				<string> "Mind" </string>
 				<string> "transform/rot" </string>
 				<string> "h_offset" </string>
 				<string> "v_offset" </string>
@@ -168,16 +156,36 @@
 				<string> "loop" </string>
 				<string> "lookahead" </string>
 				<string> "PathFollow2D" </string>
+				<string> "Particles2D" </string>
+				<string> "config/amount" </string>
+				<string> "config/lifetime" </string>
+				<string> "params/direction" </string>
+				<string> "params/spread" </string>
+				<string> "params/linear_velocity" </string>
+				<string> "params/spin_velocity" </string>
+				<string> "params/orbit_velocity" </string>
+				<string> "params/gravity_direction" </string>
+				<string> "params/gravity_strength" </string>
+				<string> "params/radial_accel" </string>
+				<string> "params/tangential_accel" </string>
+				<string> "params/damping" </string>
+				<string> "params/initial_angle" </string>
+				<string> "params/initial_size" </string>
+				<string> "params/final_size" </string>
+				<string> "params/hue_variation" </string>
+				<string> "params/anim_speed_scale" </string>
+				<string> "params/anim_initial_pos" </string>
+				<string> "color/color" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 13 </int>
+			<int> 14 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="285"> 				-1, -1, 0, 0, -1, 0, 0, 0, 0, 1, 1, -1, 1, 2, 0, 0, 1, 0, 3, 3, -1, 16, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 1, 11, 7, 12, 8, 13, 9, 14, 9, 15, 10, 16, 10, 17, 10, 18, 11, 19, 12, 0, 2, 0, 20, 20, -1, 4, 21, 10, 22, 13, 23, 14, 24, 10, 0, 1, 0, 25, 25, -1, 4, 22, 15, 26, 16, 27, 17, 28, 8, 0, 1, 0, 36, 29, -1, 10, 30, 6, 22, 18, 31, 7, 32, 19, 33, 20, 34, 7, 15, 10, 16, 10, 35, 21, 2, 22, 0, 5, 0, 37, 37, -1, 4, 22, 23, 38, 24, 39, 7, 2, 25, 0, 5, 0, 40, 40, -1, 5, 22, 26, 26, 27, 41, 19, 42, 7, 43, 1, 0, 5, 0, 44, 44, -1, 20, 22, 28, 26, 29, 28, 8, 45, 30, 46, 31, 47, 32, 48, 33, 49, 32, 4, 6, 50, 34, 51, 35, 52, 36, 53, 1, 54, 1, 55, 10, 56, 8, 57, 37, 58, 38, 59, 39, 60, 10, 0, 5, 0, 61, 61, -1, 18, 22, 40, 46, 41, 62, 1, 63, 7, 64, 8, 65, 42, 66, 43, 67, 43, 68, 44, 69, 44, 70, 8, 71, 8, 72, 7, 73, 45, 74, 46, 75, 46, 76, 46, 77, 46, 0, 1, 0, 78, 78, -1, 2, 22, 47, 79, 48, 0, 10, 0, 88, 80, -1, 10, 22, 49, 81, 50, 46, 9, 82, 9, 83, 9, 84, 8, 85, 8, 86, 8, 87, 51, 2, 52, 0, 11, 0, 37, 37, -1, 3, 22, 53, 38, 24, 2, 54, 0 </int_array>
+			<int_array  len="332"> 				-1, -1, 0, 0, -1, 0, 0, 0, 0, 1, 1, -1, 1, 2, 0, 0, 1, 0, 3, 3, -1, 16, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 1, 11, 7, 12, 8, 13, 9, 14, 9, 15, 10, 16, 10, 17, 10, 18, 11, 19, 12, 0, 2, 0, 20, 20, -1, 4, 21, 10, 22, 13, 23, 14, 24, 10, 0, 1, 0, 25, 25, -1, 4, 22, 15, 26, 16, 27, 17, 28, 8, 0, 1, 0, 36, 29, -1, 10, 30, 6, 22, 18, 31, 7, 32, 19, 33, 20, 34, 7, 15, 10, 16, 10, 35, 21, 2, 22, 0, 5, 0, 37, 37, -1, 4, 22, 23, 38, 24, 39, 7, 2, 25, 0, 5, 0, 40, 40, -1, 5, 22, 26, 26, 27, 41, 19, 42, 7, 43, 1, 0, 5, 0, 44, 44, -1, 20, 22, 28, 26, 29, 28, 8, 45, 30, 46, 31, 47, 32, 48, 33, 49, 32, 4, 6, 50, 34, 51, 35, 52, 36, 53, 1, 54, 1, 55, 10, 56, 8, 57, 37, 58, 38, 59, 39, 60, 10, 0, 5, 0, 61, 61, -1, 18, 22, 40, 46, 41, 62, 1, 63, 7, 64, 8, 65, 42, 66, 43, 67, 43, 68, 44, 69, 44, 70, 8, 71, 8, 72, 7, 73, 45, 74, 46, 75, 46, 76, 46, 77, 46, 0, 1, 0, 80, 78, -1, 2, 22, 47, 79, 48, 0, 10, 0, 89, 81, -1, 10, 22, 49, 82, 50, 46, 9, 83, 9, 84, 9, 85, 8, 86, 8, 87, 8, 88, 51, 2, 52, 0, 11, 0, 37, 37, -1, 3, 22, 53, 38, 24, 2, 25, 0, 12, 0, 90, 90, -1, 20, 21, 10, 91, 54, 92, 55, 93, 56, 94, 57, 95, 58, 96, 9, 97, 9, 98, 9, 99, 9, 100, 9, 101, 9, 102, 9, 103, 9, 104, 51, 105, 32, 106, 9, 107, 32, 108, 9, 109, 59, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="55" shared="false">
+			<array  len="60" shared="false">
 				<resource  resource_type="Script" path="local://16">  </resource>
 				<int> 0 </int>
 				<resource  external="0">  </resource>
@@ -203,15 +211,15 @@
 				<resource  resource_type="Shape2D" path="local://14">  </resource>
 				<matrix32> 1.65385, -0, 0, 0.68498, 0.500003, 9.56521 </matrix32>
 				<real> 0.08 </real>
-				<resource  resource_type="Script" path="local://7">  </resource>
+				<resource  external="1">  </resource>
 				<vector2> -32, -32 </vector2>
 				<resource  resource_type="SpriteFrames" path="local://3">  </resource>
-				<resource  resource_type="Script" path="local://8">  </resource>
+				<resource  external="3">  </resource>
 				<vector2> 0.500003, 9.56521 </vector2>
 				<vector2> 1.65385, 0.68498 </vector2>
 				<vector2> 0.999985, 2.99999 </vector2>
 				<vector2> 5.2, 5.2 </vector2>
-				<resource  external="2">  </resource>
+				<resource  external="4">  </resource>
 				<vector2> 0, 0 </vector2>
 				<real> 1 </real>
 				<color> 0, 0, 0, 0.910859 </color>
@@ -233,9 +241,14 @@
 				<vector2> 6.16827, -255.762 </vector2>
 				<real> 33.52718 </real>
 				<real> 4 </real>
-				<resource  external="3">  </resource>
+				<resource  external="5">  </resource>
 				<vector2> -5.01031, 3.05176e-05 </vector2>
-				<resource  resource_type="Script" path="local://9">  </resource>
+				<int> 260 </int>
+				<real> 0.760352 </real>
+				<real> 287.419983 </real>
+				<real> 180 </real>
+				<real> 35 </real>
+				<color> 1, 0.222656, 0.222656, 1 </color>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

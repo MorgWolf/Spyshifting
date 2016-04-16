@@ -4,12 +4,10 @@ var frame_count = 1
 var tex = null
 var ms_per_frame = 0
 
-func _init():
-	tex = load("res://Artwork/sprites/mc-spritesheet.png")
 
 func _ready():
 	set_process(true)
-
+	
 func idle_ani(dir):
 	ani(tex, dir, 0, 6)
 	ms_per_frame = 250
@@ -19,7 +17,9 @@ func move_ani(dir):
 	ms_per_frame = 100
 
 func ani(tex, dir, move, framecount):
-	var frs = self.get_sprite_frames()
+	var frs = SpriteFrames.new()
+	set_sprite_frames(frs)
+
 	frs.clear()
 	for i in range(0, framecount):
 		var atlas = AtlasTexture.new()
