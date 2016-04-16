@@ -14,7 +14,7 @@ func _process(delta):
 	var vel = Vector2(0, 0)
 	if(Input.is_key_pressed(KEY_DOWN)):
 		vel.y += v
-		dir = 0
+		dir = 2
 		ani = true
 	if(Input.is_key_pressed(KEY_UP)):
 		vel.y -= v
