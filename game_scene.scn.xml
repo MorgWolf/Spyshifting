@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="7" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://icon.png" type="Texture" index="3"></ext_resource>
+	<ext_resource path="res://player.gd" type="Script" index="2"></ext_resource>
 	<ext_resource path="res://tileset1.res.xml" type="TileSet" index="0"></ext_resource>
-	<ext_resource path="res://icon.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://tile-collision-rect.res.xml" type="Shape2D" index="1"></ext_resource>
-	<resource type="GDScript" path="local://4">
-		<string name="script/source"> "extends KinematicBody2D&#000a;&#000a;var dir = 2&#000a;var ani = false&#000a;&#000a;func _ready():&#000a;&#0009;self.set_process(true)&#000a;&#000a;func _process(delta):&#000a;&#0009;var sprite = self.get_child(0)&#000a;&#0009;&#000a;&#0009;var v = 64 * 1.5 # pixels per second. one tile is 16 px&#000a;&#0009;&#000a;&#0009;var vel = Vector2(0, 0)&#000a;&#0009;if(Input.is_key_pressed(KEY_DOWN)):&#000a;&#0009;&#0009;vel.y += v&#000a;&#0009;&#0009;dir = 0&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_UP)):&#000a;&#0009;&#0009;vel.y -= v&#000a;&#0009;&#0009;dir = 0&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_LEFT)):&#000a;&#0009;&#0009;vel.x -= v&#000a;&#0009;&#0009;dir = 3&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if(Input.is_key_pressed(KEY_RIGHT)):&#000a;&#0009;&#0009;vel.x += v&#000a;&#0009;&#0009;dir = 1&#000a;&#0009;&#0009;ani = true&#000a;&#0009;if Input.is_key_pressed(KEY_ESCAPE):&#000a;&#0009;&#0009;get_tree().quit()&#000a;&#000a;&#0009;if vel.x == 0 and vel.y == 0:&#000a;&#0009;&#0009;ani = false&#000a;&#000a;&#0009;move(vel * delta)&#000a;&#000a;&#0009;var ms_per_frame&#000a;&#0009;if ani:&#000a;&#0009;&#0009;sprite.move_ani(dir)&#000a;&#0009;&#0009;ms_per_frame = 100&#000a;&#0009;else:&#000a;&#0009;&#0009;sprite.idle_ani(dir)&#000a;&#0009;&#0009;ms_per_frame = 250&#000a;&#0009;var f = (OS.get_ticks_msec() / ms_per_frame) % sprite.get_frame_count()&#000a;&#0009;sprite.set_frame(f)&#000a;" </string>
-
-	</resource>
+	<ext_resource path="res://character_sprite.gd" type="Script" index="4"></ext_resource>
 	<resource type="SpriteFrames" path="local://3">
 		<array name="frames" len="1" shared="false">
-			<resource  external="2">  </resource>
+			<resource  external="3">  </resource>
 		</array>
-
-	</resource>
-	<resource type="GDScript" path="local://2">
-		<string name="script/source"> "extends AnimatedSprite&#000a;&#000a;var frame_count = 1&#000a;var tex = null&#000a;&#000a;func _init():&#000a;&#0009;tex = load(&quot;res://Artwork/sprites/mc-spritesheet.png&quot;)&#000a;&#000a;func idle_ani(dir):&#000a;&#0009;ani(tex, dir, 0, 6)&#000a;&#0009;&#000a;func move_ani(dir):&#000a;&#0009;ani(tex, dir, 1, 4)&#000a;&#000a;&#000a;func ani(tex, dir, move, framecount):&#000a;&#0009;var frs = self.get_sprite_frames()&#000a;&#0009;frs.clear()&#000a;&#0009;for i in range(0, framecount):&#000a;&#0009;&#0009;var atlas = AtlasTexture.new()&#000a;&#0009;&#0009;atlas.set_atlas(tex)&#000a;&#0009;&#0009;atlas.set_region(Rect2(i * 64, (dir * 2 + move) * 64, 64, 64))&#000a;&#0009;&#0009;frs.add_frame(atlas)&#000a;&#0009;frame_count = framecount&#000a;&#000a;func get_frame_count():&#000a;&#0009;return frame_count&#000a;" </string>
 
 	</resource>
 	<main_resource>
@@ -100,10 +94,10 @@
 				<resource  external="1">  </resource>
 				<matrix32> 1, -0, 0, 1, 3, 3 </matrix32>
 				<real> 0.08 </real>
-				<resource  resource_type="Script" path="local://4">  </resource>
+				<resource  external="2">  </resource>
 				<vector2> -32, -32 </vector2>
 				<resource  resource_type="SpriteFrames" path="local://3">  </resource>
-				<resource  resource_type="Script" path="local://2">  </resource>
+				<resource  external="4">  </resource>
 				<vector2> 3, 3 </vector2>
 			</array>
 			<string> "version" </string>
