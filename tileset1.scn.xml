@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="2" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://Artwork/temp/tiles1.png" type="Texture" index="0"></ext_resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "names" </string>
+			<string_array  len="36">
+				<string> "Node2D" </string>
+				<string> "transform/pos" </string>
+				<string> "Ground" </string>
+				<string> "transform/scale" </string>
+				<string> "texture" </string>
+				<string> "region" </string>
+				<string> "region_rect" </string>
+				<string> "Sprite" </string>
+				<string> "Road-V" </string>
+				<string> "frame" </string>
+				<string> "Road-H" </string>
+				<string> "vframes" </string>
+				<string> "hframes" </string>
+				<string> "Roof-L" </string>
+				<string> "StaticBody2D" </string>
+				<string> "input/pickable" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "constant_linear_velocity" </string>
+				<string> "constant_angular_velocity" </string>
+				<string> "friction" </string>
+				<string> "bounce" </string>
+				<string> "CollisionPolygon2D" </string>
+				<string> "build_mode" </string>
+				<string> "polygon" </string>
+				<string> "shape_range" </string>
+				<string> "trigger" </string>
+				<string> "Roof-M1" </string>
+				<string> "Roof-M2" </string>
+				<string> "Roof-M3" </string>
+				<string> "Roof-R" </string>
+				<string> "Wall-L" </string>
+				<string> "Wall-smudgy" </string>
+				<string> "Wall-Door" </string>
+				<string> "Wall-blank" </string>
+				<string> "Wall-R" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 20 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="414"> 				-1, -1, 0, 0, -1, 1, 1, 0, 0, 0, 0, 7, 2, -1, 5, 1, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0, 0, 0, 7, 8, -1, 6, 1, 6, 3, 2, 4, 3, 9, 7, 5, 4, 6, 8, 0, 0, 0, 7, 10, -1, 8, 1, 9, 3, 2, 4, 3, 11, 10, 12, 10, 9, 11, 5, 4, 6, 12, 0, 0, 0, 7, 13, -1, 8, 1, 13, 3, 2, 4, 3, 11, 10, 12, 10, 9, 10, 5, 4, 6, 14, 0, 4, 0, 14, 14, -1, 7, 15, 15, 16, 7, 17, 7, 18, 16, 19, 17, 20, 18, 21, 17, 0, 5, 0, 22, 22, -1, 6, 1, 19, 3, 20, 23, 21, 24, 22, 25, 23, 26, 15, 0, 0, 0, 7, 27, -1, 8, 1, 24, 3, 2, 4, 3, 11, 10, 12, 10, 9, 25, 5, 4, 6, 26, 0, 7, 0, 14, 14, -1, 7, 15, 15, 16, 7, 17, 7, 18, 16, 19, 17, 20, 18, 21, 17, 0, 8, 0, 22, 22, -1, 6, 1, 27, 3, 28, 23, 21, 24, 22, 25, 23, 26, 15, 0, 0, 0, 7, 28, -1, 8, 1, 29, 3, 2, 4, 3, 11, 10, 12, 10, 9, 30, 5, 4, 6, 31, 0, 10, 0, 14, 14, -1, 7, 15, 15, 16, 7, 17, 7, 18, 16, 19, 17, 20, 18, 21, 17, 0, 11, 0, 22, 22, -1, 4, 23, 21, 24, 22, 25, 23, 26, 15, 0, 0, 0, 7, 29, -1, 8, 1, 32, 3, 2, 4, 3, 11, 10, 12, 10, 9, 33, 5, 4, 6, 34, 0, 0, 0, 7, 30, -1, 8, 1, 35, 3, 2, 4, 3, 11, 10, 12, 10, 9, 36, 5, 4, 6, 37, 0, 0, 0, 7, 31, -1, 8, 1, 38, 3, 2, 4, 3, 11, 10, 12, 10, 9, 39, 5, 4, 6, 40, 0, 0, 0, 7, 32, -1, 8, 1, 41, 3, 2, 4, 3, 11, 10, 12, 10, 9, 42, 5, 4, 6, 43, 0, 0, 0, 7, 33, -1, 8, 1, 44, 3, 2, 4, 3, 11, 10, 12, 10, 9, 45, 5, 4, 6, 46, 0, 0, 0, 7, 34, -1, 8, 1, 47, 3, 2, 4, 3, 11, 10, 12, 10, 9, 48, 5, 4, 6, 49, 0, 0, 0, 7, 35, -1, 8, 1, 50, 3, 2, 4, 3, 11, 10, 12, 10, 9, 51, 5, 4, 6, 52, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="53" shared="false">
+				<vector2> 32, 32 </vector2>
+				<vector2> 96, 96 </vector2>
+				<vector2> 16, 16 </vector2>
+				<resource  external="0">  </resource>
+				<bool> True </bool>
+				<rect2> 0, 0, 16, 16 </rect2>
+				<vector2> 356, 96 </vector2>
+				<int> 1 </int>
+				<rect2> 16, 0, 16, 16 </rect2>
+				<vector2> 616, 96 </vector2>
+				<int> 8 </int>
+				<int> 2 </int>
+				<rect2> 32, 0, 16, 16 </rect2>
+				<vector2> 96, 356 </vector2>
+				<rect2> 0, 16, 16, 16 </rect2>
+				<bool> False </bool>
+				<vector2> 0, 0 </vector2>
+				<real> 0 </real>
+				<real> 1 </real>
+				<vector2> 0.124999, 0.125 </vector2>
+				<vector2> 0.8125, 0.8125 </vector2>
+				<int> 0 </int>
+				<vector2_array  len="0"> 					 </vector2_array>
+				<vector2> -1, -1 </vector2>
+				<vector2> 356, 356 </vector2>
+				<int> 9 </int>
+				<rect2> 16, 16, 16, 16 </rect2>
+				<vector2> 0.125, -0.0312494 </vector2>
+				<vector2> 0.8125, 0.828125 </vector2>
+				<vector2> 616, 356 </vector2>
+				<int> 10 </int>
+				<rect2> 32, 16, 16, 16 </rect2>
+				<vector2> 876, 356 </vector2>
+				<int> 11 </int>
+				<rect2> 48, 16, 16, 16 </rect2>
+				<vector2> 1136, 356 </vector2>
+				<int> 12 </int>
+				<rect2> 64, 16, 16, 16 </rect2>
+				<vector2> 96, 606 </vector2>
+				<int> 16 </int>
+				<rect2> 0, 32, 16, 16 </rect2>
+				<vector2> 356, 606 </vector2>
+				<int> 17 </int>
+				<rect2> 16, 32, 16, 16 </rect2>
+				<vector2> 616, 606 </vector2>
+				<int> 18 </int>
+				<rect2> 32, 32, 16, 16 </rect2>
+				<vector2> 876, 606 </vector2>
+				<int> 19 </int>
+				<rect2> 48, 32, 16, 16 </rect2>
+				<vector2> 1136, 606 </vector2>
+				<int> 20 </int>
+				<rect2> 64, 32, 16, 16 </rect2>
+			</array>
+			<string> "version" </string>
+			<int> 2 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>
