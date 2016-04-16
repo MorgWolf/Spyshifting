@@ -22,16 +22,20 @@ func _process(delta):
 		ani = true
 	if(Input.is_key_pressed(KEY_LEFT)):
 		vel.x -= v
-		dir = 3
+		dir = 0
 		ani = true
 	if(Input.is_key_pressed(KEY_RIGHT)):
 		vel.x += v
-		dir = 1
+		dir = 2
 		ani = true
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()
 
 	if vel.x == 0 and vel.y == 0:
+		ani = false
+
+	# hack
+	if dir == 0 and ani == true:
 		ani = false
 
 	move(vel * delta)
