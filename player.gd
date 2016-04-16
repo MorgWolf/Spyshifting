@@ -7,6 +7,7 @@ func _ready():
 	self.set_process(true)
 
 func _process(delta):
+
 	var sprite = self.get_child(0)
 
 	var v = 64 * 1.5 # pixels per second. one tile is 16 px
@@ -34,18 +35,10 @@ func _process(delta):
 	if vel.x == 0 and vel.y == 0:
 		ani = false
 
-	# hack
-	if dir == 0 and ani == true:
-		ani = false
-
 	move(vel * delta)
 
-	var ms_per_frame
+
 	if ani:
 		sprite.move_ani(dir)
-		ms_per_frame = 100
 	else:
 		sprite.idle_ani(dir)
-		ms_per_frame = 250
-	var f = (OS.get_ticks_msec() / ms_per_frame) % sprite.get_frame_count()
-	sprite.set_frame(f)
