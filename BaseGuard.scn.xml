@@ -54,7 +54,7 @@
 				<string> "red" </string>
 				<string> "slim" </string>
 				<int> 0 </int>
-				<int> 2 </int>
+				<int> 8 </int>
 				<bool> False </bool>
 				<resource  resource_type="SpriteFrames" path="local://3">  </resource>
 				<resource  external="1">  </resource>

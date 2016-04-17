@@ -31,7 +31,7 @@ func try_see_player():
 	var player = get_tree().get_nodes_in_group("Player")[0]
 
 	# based on where the player is, and based on direction we're facing, can we see the player?
-	var close_enough = player.get_global_pos().distance_to(sprite.get_global_pos()) < 5 * 64
+	var close_enough = player.get_global_pos().distance_to(sprite.get_global_pos()) < view_range * 2 * 64
 
 	if close_enough:
 		var angle = sprite.get_global_pos().angle_to_point(player.get_global_pos())
@@ -46,7 +46,12 @@ func try_see_player():
 		   (direction == 3 and angle > 135 - angle_mod and angle < 225 + angle_mod) or \
 		   (direction == 0 and angle > 225 - angle_mod and angle < 315 + angle_mod):
 			var path = path_a_to_b(get_tree().get_nodes_in_group("Nav2D")[0], sprite, player)
-			if path.size() == view_range:
+			var n_old = sprite.get_global_pos()
+			var distance = 0
+			for n in path:
+				distance = n_old.distance_to(n)
+				n_old = n
+			if distance <= view_range*64:
 				can_see_player = true
 			else:
 				can_see_player = false
