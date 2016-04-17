@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="3" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://PatrolFollow.gd" type="Script" index="0"></ext_resource>
+	<ext_resource path="res://BaseGuard.scn.xml" type="PackedScene" index="1"></ext_resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="1" shared="false">
+				<node_path> "Guard" </node_path>
+			</array>
+			<string> "names" </string>
+			<string_array  len="15">
+				<string> "Patrolling Guard" </string>
+				<string> "transform/pos" </string>
+				<string> "transform/rot" </string>
+				<string> "offset" </string>
+				<string> "h_offset" </string>
+				<string> "v_offset" </string>
+				<string> "rotate" </string>
+				<string> "cubic_interp" </string>
+				<string> "loop" </string>
+				<string> "lookahead" </string>
+				<string> "script/script" </string>
+				<string> "speed" </string>
+				<string> "PathFollow2D" </string>
+				<string> "Guard" </string>
+				<string> "AnimatedSprite" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 2 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="36"> 				-1, -1, 12, 0, -1, 11, 1, 0, 2, 1, 3, 2, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 4, 10, 5, 11, 6, 0, 0, 0, 2147483647, 13, 7, 0, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="8" shared="false">
+				<vector2> 420.292, 98.1859 </vector2>
+				<real> 0.224771 </real>
+				<real> 0 </real>
+				<bool> True </bool>
+				<real> 4 </real>
+				<resource  external="0">  </resource>
+				<real> 1.5 </real>
+				<resource  external="1">  </resource>
+			</array>
+			<string> "version" </string>
+			<int> 2 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>

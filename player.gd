@@ -16,6 +16,7 @@ func update_sprite(sprite):
 
 func _ready():
 	self.set_process(true)
+	add_to_group("Player")
 	var sprite = get_node("AnimatedSprite")
 	if sprite.tex == null:
 		update_sprite(sprite)
