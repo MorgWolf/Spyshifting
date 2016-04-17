@@ -119,3 +119,13 @@ func lose_power(name):
 		type = ""
 		var sprite = get_node("AnimatedSprite")
 		update_sprite(sprite)
+
+func transition_new_scene(new_scene_name):
+	for n in get_tree().get_nodes_in_group("Ephemerals"):
+		n.set_hidden(true)
+	fade_to_black = true
+	fade_to_black_action = "new_scene"
+	fade_to_black_action_arg = new_scene_name
+	ignore_input = true
+
+	
