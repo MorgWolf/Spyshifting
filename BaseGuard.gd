@@ -98,16 +98,17 @@ func set_direction(new_dir):
 func on_attack():
 	is_frozen = true
 	frozen_duration = 0
-	get_node("./FrozenTimer").start()
+	get_node("FrozenTimer").start()
 	get_node("AttackedParticles").set_emitting(true)
 	get_node("AttackedParticles/Timer").start()
 
 func _on_FrozenTimer_timeout():
 	set_hidden(is_visible())
-	var cone = get_node("./Cone of Vision")
+	var cone = get_node("Cone of Vision")
 	cone.set_hidden(true)
-	var timer = get_node("./FrozenTimer")
+	var timer = get_node("FrozenTimer")
 	frozen_duration += timer.get_wait_time()
+	
 	if frozen_duration >= frozen_timeout:
 		var player = get_tree().get_nodes_in_group("Player")[0]
 		player.lose_power(get_name())

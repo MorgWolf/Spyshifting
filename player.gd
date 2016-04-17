@@ -11,6 +11,8 @@ var fade_to_black_action = ""
 var fade_to_black_action_arg = ""
 var ignore_input = false
 var can_attack = true
+var shapeshift_duration = 0 # how long are we currently into shapeshifting?
+var shapeshift_max_duration = 0 # total max time we can stay in shapeshift before we go back to normal
 
 export var attack_cooldown = 0.5 
 export var action_range = 64 * 0.75  # distance for attack to succeed: 0.75 tiles
@@ -116,6 +118,12 @@ func handle_attack():
 		color = closest_guard.color
 		type = closest_guard.type
 		shapeshift_from = closest_guard.get_name()
+		shapeshift_max_duration = closest_guard.frozen_timeout
+		shapeshift_duration = 0
+		get_node("TextureProgress").set_value(100)
+		get_node("TextureProgress").set_hidden(false)
+		get_node("TextureProgress/ShapeshiftTimer").stop() # calling stop + start just to make sure there's no weird stuff
+		get_node("TextureProgress/ShapeshiftTimer").start() 
 		update_sprite(sprite)
 
 func lose_power(name):
@@ -127,6 +135,9 @@ func lose_power(name):
 		type = ""
 		var sprite = get_node("AnimatedSprite")
 		update_sprite(sprite)
+		get_node("TextureProgress").set_hidden(true)
+		get_node("TextureProgress/ShapeshiftTimer").stop()
+		
 
 func transition_new_scene(new_scene_name):
 	for n in get_tree().get_nodes_in_group("Ephemerals"):
@@ -144,3 +155,9 @@ func _on_Attack_Emitter_Timer_timeout():
 
 func _on_AttackCooldown_timeout():
 	can_attack = true
+
+
+func _on_ShapeshiftTimer_timeout():
+	shapeshift_duration += get_node("TextureProgress/ShapeshiftTimer").get_wait_time()
+	var new_value = 100 - float(shapeshift_duration) / float(shapeshift_max_duration) * 100
+	get_node("TextureProgress").set_value(new_value)
