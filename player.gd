@@ -62,7 +62,8 @@ func _process(delta):
 			dir = 0
 			ani = true
 		if Input.is_key_pressed(KEY_ESCAPE):
-			get_tree().quit()
+			get_tree().set_pause(true)
+			get_node("Panel").set_hidden(false)
 		if Input.is_key_pressed(KEY_PAUSE):
 			get_tree().set_pause(true)
 		if Input.is_key_pressed(KEY_SPACE):
