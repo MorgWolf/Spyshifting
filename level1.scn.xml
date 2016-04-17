@@ -74,7 +74,7 @@
 				<real> 3 </real>
 				<resource  external="3">  </resource>
 				<vector2> 672, 224 </vector2>
-				<string> "res://game_scene.scn.xml" </string>
+				<string> "res://level2.scn.xml" </string>
 				<resource  external="4">  </resource>
 				<vector2> 608, 544 </vector2>
 				<real> 90 </real>
