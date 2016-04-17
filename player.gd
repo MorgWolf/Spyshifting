@@ -8,6 +8,8 @@ var type = ""
 
 export var action_range = 0 # = 999 * 64
 
+var shapeshift_from = ""
+
 func update_sprite(sprite):
 	if type == "":
 		sprite.tex = load("res://Artwork/sprites/" + color + "-spritesheet.png")
@@ -52,18 +54,7 @@ func _process(delta):
 		get_tree().set_pause(true)
 	if Input.is_key_pressed(KEY_SPACE):
 		get_tree().set_pause(false)
-		
-		var min_dist = action_range
-		var closest_guard = null
-		for n in get_tree().get_nodes_in_group("Enemies"):
-			var dist = n.get_global_pos().distance_to(get_global_pos())
-			if dist < min_dist:
-				min_dist = dist
-				closest_guard = n
-		if closest_guard != null:
-			color = closest_guard.color
-			type = closest_guard.type
-			update_sprite(sprite)
+		handle_attack()
 
 	if vel.x == 0 and vel.y == 0:
 		ani = false
@@ -74,3 +65,30 @@ func _process(delta):
 		sprite.move_ani(dir)
 	else:
 		sprite.idle_ani(dir)
+		
+func handle_attack():
+	var sprite = get_node("AnimatedSprite")
+	# TODO: add particles!
+	var min_dist = action_range
+	var closest_guard = null
+	for n in get_tree().get_nodes_in_group("Enemies"):
+		var dist = n.get_global_pos().distance_to(get_global_pos())
+		if dist < min_dist:
+			min_dist = dist
+			closest_guard = n
+	if closest_guard != null:
+		closest_guard.on_attack()
+		color = closest_guard.color
+		type = closest_guard.type
+		shapeshift_from = closest_guard.get_name()
+		update_sprite(sprite)
+
+func lose_power(name):
+	# Drop your power if the name of the guard that we attacked is the same
+	# as the latest guard we attacked (it means timer expired)
+	if shapeshift_from == name:
+		shapeshift_from = ""
+		color = "mc"
+		type = ""
+		var sprite = get_node("AnimatedSprite")
+		update_sprite(sprite)
