@@ -35,7 +35,7 @@ func _fixed_process(delta):
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	try_see_player()
 	if can_see_player and player.color != color:
-		print(get_name() + " can see player! GAME OVER.")
+		print(get_name() + " can see player " + player.get_name() + "! GAME OVER.")
 	_in_fixed_process = false
 	
 func try_see_player():
@@ -46,7 +46,8 @@ func try_see_player():
 	var player = get_tree().get_nodes_in_group("Player")[0]
 
 	# based on where the player is, and based on direction we're facing, can we see the player?
-	var close_enough = player.get_global_pos().distance_to(sprite.get_global_pos()) < view_range * 2 * 64
+	var distance = player.get_global_pos().distance_to(sprite.get_global_pos())
+	var close_enough = distance < view_range * 64
 
 	if close_enough:
 		var angle = sprite.get_global_pos().angle_to_point(player.get_global_pos())
@@ -64,15 +65,9 @@ func try_see_player():
 			var n_old = sprite.get_global_pos()
 			var distance = 0
 			if path.size() > 2:
-				for n in path:
-					distance = n_old.distance_to(n)
-					n_old = n
-			else:
-				distance = player.get_global_pos().distance_to(sprite.get_global_pos())
-			if distance <= view_range*64:
-				can_see_player = true
-			else:
 				can_see_player = false
+			else:
+				can_see_player = true
 		else:
 			can_see_player = false
 	else: 
