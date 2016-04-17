@@ -7,6 +7,7 @@ export var direction = 0
 export var view_range = 2
 
 var can_see_player = false
+var is_frozen = false
 
 func path_a_to_b(nav2d, a, b):
 	if a != null and b != null:
@@ -18,6 +19,7 @@ func path_a_to_b(nav2d, a, b):
 
 func _ready():
 	set_fixed_process(true)
+	set_direction(direction)
 	add_to_group("Enemies")
 	var sprite = get_node("AnimatedSprite")
 	if sprite.tex == null:
@@ -36,10 +38,10 @@ func try_see_player():
 		angle *= 180.0 / 3.14159
 		if angle < 0:
 			angle += 360.0
-		var good_angle = false
+			
 		var angle_mod = 0
 
-		if (direction == 1 and angle > 315 - angle_mod or angle < 45 + angle_mod) or \
+		if (direction == 1 and (angle > 315 - angle_mod or angle < 45 + angle_mod)) or \
 		   (direction == 2 and angle > 45 - angle_mod and angle < 135 + angle_mod) or \
 		   (direction == 3 and angle > 135 - angle_mod and angle < 225 + angle_mod) or \
 		   (direction == 0 and angle > 225 - angle_mod and angle < 315 + angle_mod):
@@ -52,6 +54,11 @@ func try_see_player():
 			can_see_player = false
 	else: 
 		can_see_player = false
+		
+func set_direction(new_dir):
+	direction = new_dir
+	var cone = get_child(1)
+	cone.set_rot(direction * 3.14159 / 2)
 
 func _fixed_process(delta):
 	var player = get_tree().get_nodes_in_group("Player")[0]

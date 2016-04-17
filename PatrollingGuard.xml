@@ -13,7 +13,7 @@
 				<node_path> "Guard" </node_path>
 			</array>
 			<string> "names" </string>
-			<string_array  len="15">
+			<string_array  len="17">
 				<string> "Patrolling Guard" </string>
 				<string> "transform/pos" </string>
 				<string> "transform/rot" </string>
@@ -29,16 +29,18 @@
 				<string> "PathFollow2D" </string>
 				<string> "Guard" </string>
 				<string> "AnimatedSprite" </string>
+				<string> "Cone of Vision" </string>
+				<string> "Sprite" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 2 </int>
+			<int> 3 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="36"> 				-1, -1, 12, 0, -1, 11, 1, 0, 2, 1, 3, 2, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 4, 10, 5, 11, 6, 0, 0, 0, 2147483647, 13, 7, 0, 0 </int_array>
+			<int_array  len="45"> 				-1, -1, 12, 0, -1, 11, 1, 0, 2, 1, 3, 2, 4, 2, 5, 2, 6, 3, 7, 3, 8, 3, 9, 4, 10, 5, 11, 6, 0, 0, 0, 2147483647, 13, 7, 0, 0, 1, -1, 2147483647, 15, -1, 1, 10, 8, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="8" shared="false">
+			<array  len="9" shared="false">
 				<vector2> 420.292, 98.1859 </vector2>
 				<real> 0.224771 </real>
 				<real> 0 </real>
@@ -47,7 +49,7 @@
 				<resource  external="0">  </resource>
 				<real> 1.5 </real>
 				<resource  external="1">  </resource>
-			</array>
+				<resource name=""></resource>			</array>
 			<string> "version" </string>
 			<int> 2 </int>
 		</dictionary>
