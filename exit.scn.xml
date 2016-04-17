@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="4" version="2.0" version_name="Godot Engine v2.0.stable.official">
-	<resource type="GDScript" path="local://4">
-		<string name="script/source"> "extends Node2D&#000a;&#000a;export var next_level = &quot;&quot;&#000a;&#000a;func exit_level():&#000a;&#0009;#var s = ResourceLoader.load(next_level)&#000a;&#0009;#var next_scene = s.instance()&#000a;&#0009;#get_tree().get_root().add_child(next_scene)&#000a;&#0009;#get_tree().set_current_scene(next_scene)&#000a;&#000a;&#0009;#get_tree().change_scene(next_level)&#000a;&#000a;&#0009;var player = get_tree().get_nodes_in_group(&quot;Player&quot;)[0]&#000a;&#0009;if next_level == &quot;&quot;:&#000a;&#0009;&#0009;next_level = &quot;main_menu.xml.scn&quot;&#000a;&#0009;player.transition_new_scene(next_level)" </string>
-
-	</resource>
+	<ext_resource path="res://exit_level.gd" type="Script" index="0"></ext_resource>
 	<resource type="CircleShape2D" path="local://1">
 		<real name="custom_solver_bias"> 0 </real>
 		<real name="radius"> 10 </real>
@@ -79,7 +76,7 @@
 			<array  len="25" shared="false">
 				<int> 1 </int>
 				<vector2> 32, 32 </vector2>
-				<resource  resource_type="Script" path="local://4">  </resource>
+				<resource  external="0">  </resource>
 				<string> "" </string>
 				<int> 128 </int>
 				<real> 4 </real>

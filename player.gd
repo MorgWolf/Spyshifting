@@ -20,6 +20,8 @@ export var player_speed_tiles = 3.0  # in tiles per second
 
 var shapeshift_from = ""
 
+var pause_start = 0
+
 func update_sprite(sprite):
 	if type == "":
 		sprite.tex = load("res://Artwork/sprites/" + color + "-spritesheet.png")
@@ -63,13 +65,11 @@ func _process(delta):
 			vel.x += v
 			dir = 0
 			ani = true
-		if Input.is_key_pressed(KEY_ESCAPE):
+		if Input.is_key_pressed(KEY_ESCAPE) and OS.get_ticks_msec() - pause_start > 150:
 			get_tree().set_pause(true)
 			get_node("Panel").set_hidden(false)
-		if Input.is_key_pressed(KEY_PAUSE):
-			get_tree().set_pause(true)
+			pause_start = OS.get_ticks_msec()
 		if Input.is_key_pressed(KEY_SPACE):
-			get_tree().set_pause(false)
 			if can_attack:
 				handle_attack()
 
