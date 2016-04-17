@@ -3,7 +3,7 @@
 	<ext_resource path="res://level_pick.gd" type="Script" index="1"></ext_resource>
 	<ext_resource path="res://Artwork/music/PianoMusic_IntroMusic_session.ogg" type="AudioStream" index="0"></ext_resource>
 	<resource type="GDScript" path="local://3">
-		<string name="script/source"> "extends Panel&#000a;&#000a;func _ready():&#000a;&#0009;set_process(true)&#000a;&#000a;func _process(delta):&#000a;&#0009;if Input.is_key_pressed(KEY_SPACE):&#000a;&#0009;&#0009;get_tree().change_scene(&quot;res://level1.scn.xml&quot;)&#000a;&#0009;if Input.is_key_pressed(KEY_ESCAPE):&#000a;&#0009;&#0009;get_tree().quit()&#000a;" </string>
+		<string name="script/source"> "extends Panel&#000a;&#000a;func _ready():&#000a;&#0009;set_process(true)&#000a;&#000a;func _process(delta):&#000a;&#0009;if Input.is_key_pressed(KEY_SPACE):&#000a;&#0009;&#0009;# This is a hack but I&apos;m too lazy to write proper code:&#000a;&#0009;&#0009;get_node(&quot;/root/LevelBGM&quot;).play()&#000a;&#0009;&#0009;get_tree().change_scene(&quot;res://level1.scn.xml&quot;)&#000a;&#0009;if Input.is_key_pressed(KEY_ESCAPE):&#000a;&#0009;&#0009;get_tree().quit()&#000a;" </string>
 
 	</resource>
 	<resource type="GDScript" path="local://1">
