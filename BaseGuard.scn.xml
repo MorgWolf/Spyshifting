@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="5" version="2.0" version_name="Godot Engine v2.0.stable.official">
+<resource_file type="PackedScene" subresource_count="6" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://BaseGuard.gd" type="Script" index="0"></ext_resource>
 	<ext_resource path="res://Artwork/sprites/cone-of-vision-bw.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://character_sprite.gd" type="Script" index="1"></ext_resource>
+	<ext_resource path="res://Artwork/sprites/attack-particles.png" type="Texture" index="3"></ext_resource>
 	<resource type="SpriteFrames" path="local://3">
 
 	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "conn_count" </string>
-			<int> 1 </int>
+			<int> 2 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				4, 0, 26, 25, 2, 0 </int_array>
+			<int_array  len="12"> 				4, 0, 55, 54, 2, 0, 6, 0, 55, 56, 2, 0 </int_array>
 			<string> "editable_instances" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="27">
+			<string_array  len="57">
 				<string> "Guard" </string>
 				<string> "script/script" </string>
 				<string> "color" </string>
@@ -42,18 +43,48 @@
 				<string> "one_shot" </string>
 				<string> "autostart" </string>
 				<string> "Timer" </string>
+				<string> "AttackedParticles" </string>
+				<string> "config/amount" </string>
+				<string> "config/lifetime" </string>
+				<string> "config/time_scale" </string>
+				<string> "config/emitting" </string>
+				<string> "config/texture" </string>
+				<string> "params/direction" </string>
+				<string> "params/spread" </string>
+				<string> "params/linear_velocity" </string>
+				<string> "params/spin_velocity" </string>
+				<string> "params/orbit_velocity" </string>
+				<string> "params/gravity_direction" </string>
+				<string> "params/gravity_strength" </string>
+				<string> "params/radial_accel" </string>
+				<string> "params/tangential_accel" </string>
+				<string> "params/damping" </string>
+				<string> "params/initial_angle" </string>
+				<string> "params/initial_size" </string>
+				<string> "params/final_size" </string>
+				<string> "params/hue_variation" </string>
+				<string> "params/anim_speed_scale" </string>
+				<string> "params/anim_initial_pos" </string>
+				<string> "randomness/direction" </string>
+				<string> "randomness/spread" </string>
+				<string> "randomness/linear_velocity" </string>
+				<string> "randomness/final_size" </string>
+				<string> "randomness/hue_variation" </string>
+				<string> "color/color" </string>
+				<string> "Particles2D" </string>
 				<string> "_on_FrozenTimer_timeout" </string>
 				<string> "timeout" </string>
+				<string> "_on_AttackedTimer_timeout" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 5 </int>
+			<int> 7 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="75"> 				-1, -1, 7, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0, 0, 0, 8, 8, -1, 3, 9, 6, 10, 7, 1, 8, 0, 0, 0, 7, 11, -1, 2, 12, 9, 13, 10, 0, 2, 0, 14, 14, -1, 5, 15, 11, 9, 6, 16, 12, 17, 6, 18, 13, 0, 0, 0, 24, 19, -1, 4, 20, 14, 21, 15, 22, 6, 23, 6, 0 </int_array>
+			<int_array  len="153"> 				-1, -1, 7, 0, -1, 6, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 0, 0, 0, 8, 8, -1, 3, 9, 6, 10, 7, 1, 8, 0, 0, 0, 7, 11, -1, 2, 12, 9, 13, 10, 0, 2, 0, 14, 14, -1, 5, 15, 11, 9, 6, 16, 12, 17, 6, 18, 13, 0, 0, 0, 24, 19, -1, 4, 20, 14, 21, 15, 22, 6, 23, 6, 0, 0, 0, 53, 25, -1, 28, 13, 16, 26, 17, 27, 18, 28, 19, 29, 6, 30, 20, 31, 21, 32, 22, 33, 23, 34, 18, 35, 21, 36, 21, 37, 24, 38, 18, 39, 25, 40, 21, 41, 21, 42, 26, 43, 18, 44, 21, 45, 23, 46, 27, 47, 28, 48, 28, 49, 26, 50, 28, 51, 29, 52, 30, 0, 5, 0, 24, 24, -1, 4, 20, 14, 21, 28, 22, 9, 23, 6, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="16" shared="false">
+			<array  len="31" shared="false">
 				<resource  external="0">  </resource>
 				<string> "red" </string>
 				<string> "slim" </string>
@@ -70,6 +101,21 @@
 				<vector2> 0, -512 </vector2>
 				<int> 1 </int>
 				<real> 0.05 </real>
+				<vector2> 0.814514, -1.629 </vector2>
+				<int> 32 </int>
+				<real> 2 </real>
+				<real> 4 </real>
+				<resource  external="3">  </resource>
+				<real> 0 </real>
+				<real> 180 </real>
+				<real> 20 </real>
+				<real> 9.8 </real>
+				<real> 10 </real>
+				<real> 0.3 </real>
+				<real> 1 </real>
+				<real> 0.5 </real>
+				<real> 0.2 </real>
+				<color> 0.51178, 0.71682, 0.839844, 1 </color>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

@@ -10,7 +10,9 @@ var fade_to_black = false
 var fade_to_black_action = ""
 var fade_to_black_action_arg = ""
 var ignore_input = false
+var can_attack = true
 
+export var attack_cooldown = 0.5 
 export var action_range = 32
 export var player_speed_tiles = 3.0
 
@@ -24,6 +26,7 @@ func update_sprite(sprite):
 
 func _ready():
 	self.set_process(true)
+	get_node("AttackCooldown").set_wait_time(attack_cooldown)
 	add_to_group("Player")
 	var sprite = get_node("AnimatedSprite")
 	if sprite.tex == null:
@@ -64,7 +67,8 @@ func _process(delta):
 			get_tree().set_pause(true)
 		if Input.is_key_pressed(KEY_SPACE):
 			get_tree().set_pause(false)
-			handle_attack()
+			if can_attack:
+				handle_attack()
 
 	if vel.x == 0 and vel.y == 0:
 		ani = false
@@ -95,9 +99,12 @@ func _process(delta):
 
 func handle_attack():
 	var sprite = get_node("AnimatedSprite")
-	# TODO: add particles!
 	var min_dist = action_range
 	var closest_guard = null
+	can_attack = false
+	get_node("AttackParticles").set_emitting(true)
+	get_node("AttackParticles/Timer").start()
+	get_node("AttackCooldown").start()
 	for n in get_tree().get_nodes_in_group("Enemies"):
 		var dist = n.get_global_pos().distance_to(get_global_pos())
 		if dist < min_dist:
@@ -129,3 +136,10 @@ func transition_new_scene(new_scene_name):
 	ignore_input = true
 
 	
+
+func _on_Attack_Emitter_Timer_timeout():
+	get_node("AttackParticles").set_emitting(false)
+
+
+func _on_AttackCooldown_timeout():
+	can_attack = true

@@ -13,7 +13,7 @@ var frozen_duration = 0
 
 var _in_fixed_process = true
 
-var colors = {"red": Color(0.8,0.2,0.2), "blue": Color(0.2,0.2,0.8), "green": Color(0.2,0.8,0.2), "yellow": Color(0.5,0.5,0.2) }
+var colors = {"red": Color(0.8,0.2,0.2), "blue": Color(0.2,0.2,0.8), "green": Color(0.2,0.8,0.2), "yellow": Color(0.5,0.5,0.24) }
 
 func path_a_to_b(nav2d, a, b):
 	if a != null and b != null:
@@ -22,6 +22,10 @@ func path_a_to_b(nav2d, a, b):
 		var path = nav2d.get_simple_path(a_nav2dpos, b_nav2dpos)
 		return path
 	return null
+
+func scale_cone_of_vision():
+	var cone = get_node("Cone of Vision/Sprite")
+	cone.set_scale(Vector2(view_range/8.0, view_range/8.0))
 
 func _ready():
 	set_fixed_process(true)
@@ -33,6 +37,7 @@ func _ready():
 		sprite.tex = load("res://Artwork/sprites/" + color + "-" + type + "-spritesheet.png")
 	sprite.idle_ani(direction)
 	get_node("Cone of Vision/Sprite").set_modulate(colors[color])
+	scale_cone_of_vision()
 
 func _fixed_process(delta):
 	_in_fixed_process = true
@@ -87,6 +92,8 @@ func on_attack():
 	is_frozen = true
 	frozen_duration = 0
 	get_node("./FrozenTimer").start()
+	get_node("AttackedParticles").set_emitting(true)
+	get_node("AttackedParticles/Timer").start()
 
 func _on_FrozenTimer_timeout():
 	set_hidden(is_visible())
@@ -101,3 +108,7 @@ func _on_FrozenTimer_timeout():
 		cone.set_hidden(false)
 		is_frozen = false
 		timer.stop()
+
+
+func _on_AttackedTimer_timeout():
+	get_node("AttackedParticles").set_emitting(false)
