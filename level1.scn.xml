@@ -3,7 +3,7 @@
 	<ext_resource path="res://tileset1.res.xml" type="TileSet" index="1"></ext_resource>
 	<ext_resource path="res://exit.scn.xml" type="PackedScene" index="3"></ext_resource>
 	<ext_resource path="res://base_level.scn.xml" type="PackedScene" index="0"></ext_resource>
-	<ext_resource path="res://player.scn" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://player.scn.xml" type="PackedScene" index="2"></ext_resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "base_scene" </string>
