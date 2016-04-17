@@ -32,19 +32,19 @@ func _process(delta):
 	var vel = Vector2(0, 0)
 	if(Input.is_key_pressed(KEY_DOWN)):
 		vel.y += v
-		dir = 2
+		dir = 3
 		ani = true
 	if(Input.is_key_pressed(KEY_UP)):
 		vel.y -= v
-		dir = 0
+		dir = 1
 		ani = true
 	if(Input.is_key_pressed(KEY_LEFT)):
 		vel.x -= v
-		dir = 3
+		dir = 2
 		ani = true
 	if(Input.is_key_pressed(KEY_RIGHT)):
 		vel.x += v
-		dir = 1
+		dir = 0
 		ani = true
 	if Input.is_key_pressed(KEY_ESCAPE):
 		get_tree().quit()

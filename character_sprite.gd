@@ -17,6 +17,18 @@ func move_ani(dir):
 	ms_per_frame = 100
 
 func ani(tex, dir, move, framecount):
+	# files have different direction than the mathematical, ccw direction...
+	# take the direction and turn it into the order inside sprite files.
+	# ugh :(
+	if dir == 0:  # face right
+		dir = 1  # face our right
+	elif dir == 1:  # face up
+		dir = 0  # face our up
+	elif dir == 2:  # face left
+		dir = 3  # face our right
+	elif dir == 3:  # face down
+		dir = 2  # face our down
+	
 	var frs = SpriteFrames.new()
 	set_sprite_frames(frs)
 
