@@ -1,6 +1,6 @@
 extends PathFollow2D
 
-var char_color = "green"
+var char_color = "red"
 var char_type = "slim"
 
 func path_a_to_b(nav2d, a, b):
@@ -51,13 +51,15 @@ func _fixed_process(delta):
 			angle += 360.0
 		var good_angle = false
 		
-		if dir == 1 and (angle > 315 - 20 or angle < 45 + 20):
+		var angle_mod = 20
+		
+		if dir == 1 and (angle > 315 - angle_mod or angle < 45 + angle_mod):
 			good_angle = true
-		elif dir == 2 and angle > 45 - 20 and angle < 135 + 20:
+		elif dir == 2 and angle > 45 - angle_mod and angle < 135 + angle_mod:
 			good_angle = true
-		elif dir == 3 and angle > 135 - 20 and angle < 225 + 20:
+		elif dir == 3 and angle > 135 - angle_mod and angle < 225 + angle_mod:
 			good_angle = true
-		elif dir == 0 and angle > 225 - 20 and angle < 315 + 20:
+		elif dir == 0 and angle > 225 - angle_mod and angle < 315 + angle_mod:
 			good_angle = true
 
 		if good_angle:
