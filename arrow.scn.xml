@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="3" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://Artwork/sprites/arrow.png" type="Texture" index="0"></ext_resource>
+	<resource type="GDScript" path="local://1">
+		<string name="script/source"> "extends Sprite&#000a;&#000a;var original_pos = Vector2(0,0)&#000a;&#000a;func _ready():&#000a;&#0009;original_pos = get_pos()&#000a;&#0009;self.set_process(true)&#000a;&#000a;func _process(delta):&#000a;&#0009;self.set_offset(Vector2(8.0 * sin(OS.get_ticks_msec() / 100.0), 0))&#000a;" </string>
+
+	</resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "names" </string>
+			<string_array  len="8">
+				<string> "Arrow" </string>
+				<string> "Node2D" </string>
+				<string> "Sprite" </string>
+				<string> "visibility/blend_mode" </string>
+				<string> "texture" </string>
+				<string> "modulate" </string>
+				<string> "script/script" </string>
+				<string> "Ephemerals" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 2 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="23"> 				-1, -1, 1, 0, -1, 0, 0, 0, 0, 2, 2, -1, 4, 3, 0, 4, 1, 5, 2, 6, 3, 1, 7 </int_array>
+			<string> "variants" </string>
+			<array  len="4" shared="false">
+				<int> 1 </int>
+				<resource  external="0">  </resource>
+				<color> 1, 0.394531, 0.394531, 1 </color>
+				<resource  resource_type="Script" path="local://1">  </resource>
+			</array>
+			<string> "version" </string>
+			<int> 2 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>
