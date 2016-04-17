@@ -12,6 +12,7 @@ var fade_to_black_action_arg = ""
 var ignore_input = false
 
 export var action_range = 32
+export var player_speed_tiles = 3.0
 
 var shapeshift_from = ""
 
@@ -37,7 +38,7 @@ func _process(delta):
 
 	var sprite = get_node("AnimatedSprite")
 
-	var v = 64 * 1.5 # pixels per second. one tile is 16 px
+	var v = 64 * player_speed_tiles
 
 	var vel = Vector2(0, 0)
 	if not ignore_input:
