@@ -48,9 +48,12 @@ func try_see_player():
 			var path = path_a_to_b(get_tree().get_nodes_in_group("Nav2D")[0], sprite, player)
 			var n_old = sprite.get_global_pos()
 			var distance = 0
-			for n in path:
-				distance = n_old.distance_to(n)
-				n_old = n
+			if path.size() > 2:
+				for n in path:
+					distance = n_old.distance_to(n)
+					n_old = n
+			else:
+				distance = player.get_global_pos().distance_to(sprite.get_global_pos())
 			if distance <= view_range*64:
 				can_see_player = true
 			else:
