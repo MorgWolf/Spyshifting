@@ -13,6 +13,8 @@ var frozen_duration = 0
 
 var _in_fixed_process = true
 
+var colors = {"red": Color(0.8,0.2,0.2), "blue": Color(0.2,0.2,0.8), "green": Color(0.2,0.8,0.2), "yellow": Color(0.5,0.5,0.2) }
+
 func path_a_to_b(nav2d, a, b):
 	if a != null and b != null:
 		var a_nav2dpos = nav2d.get_global_transform().xform(a.get_global_pos())
@@ -30,6 +32,7 @@ func _ready():
 	if sprite.tex == null:
 		sprite.tex = load("res://Artwork/sprites/" + color + "-" + type + "-spritesheet.png")
 	sprite.idle_ani(direction)
+	get_node("Cone of Vision/Sprite").set_modulate(colors[color])
 
 func _fixed_process(delta):
 	_in_fixed_process = true
