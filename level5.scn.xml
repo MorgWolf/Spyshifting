@@ -70,7 +70,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="46">
+			<string_array  len="43">
 				<string> "Node2D" </string>
 				<string> "Navigation2D" </string>
 				<string> "TileMap" </string>
@@ -114,9 +114,6 @@
 				<string> "navpoly" </string>
 				<string> "enabled" </string>
 				<string> "BGM" </string>
-				<string> "Panel" </string>
-				<string> "Button1" </string>
-				<string> "Button" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 14 </int>
