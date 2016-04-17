@@ -3,16 +3,16 @@ extends KinematicBody2D
 var dir = 2
 var ani = false
 
-var char_color = "mc"
-var char_type = ""
+var color = "mc"
+var type = ""
 
 export var action_range = 0 # = 999 * 64
 
 func update_sprite(sprite):
-	if char_type == "":
-		sprite.tex = load("res://Artwork/sprites/" + char_color + "-spritesheet.png")
+	if type == "":
+		sprite.tex = load("res://Artwork/sprites/" + color + "-spritesheet.png")
 	else:
-		sprite.tex = load("res://Artwork/sprites/" + char_color + "-" + char_type + "-spritesheet.png")
+		sprite.tex = load("res://Artwork/sprites/" + color + "-" + type + "-spritesheet.png")
 
 func _ready():
 	self.set_process(true)
@@ -53,24 +53,24 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_SPACE):
 		get_tree().set_pause(false)
 		
-		var min_dist = action_range
-		var closest_guard = null
-		for child in get_parent().get_children():
-			if child.get_name() == "Guard":
-				var guard = null
-				if child.has_node("Mind"):
-					guard = child.get_node("Mind")
-				else:
-					guard = child
-				
-				var dist = guard.get_global_pos().distance_to(get_global_pos())
-				if dist < min_dist:
-					min_dist = dist
-					closest_guard = guard
-		if closest_guard != null:
-			char_color = closest_guard.char_color
-			char_type = closest_guard.char_type
-			update_sprite(sprite)
+		#var min_dist = action_range
+		#var closest_guard = null
+		#for child in get_parent().get_children():
+		#	if child.get_name() == "Guard":
+		#		var guard = null
+		#		if child.has_node("Mind"):
+		#			guard = child.get_node("Mind")
+		#		else:
+		#			guard = child
+		#		
+		#		var dist = guard.get_global_pos().distance_to(get_global_pos())
+		#		if dist < min_dist:
+		#			min_dist = dist
+		#			closest_guard = guard
+		#if closest_guard != null:
+		#	color = closest_guard.color
+		#	type = closest_guard.type
+		#	update_sprite(sprite)
 
 	if vel.x == 0 and vel.y == 0:
 		ani = false
