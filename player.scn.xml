@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="7" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://player.gd" type="Script" index="0"></ext_resource>
+	<ext_resource path="res://character_sprite.gd" type="Script" index="2"></ext_resource>
+	<ext_resource path="res://icon.png" type="Texture" index="1"></ext_resource>
+	<ext_resource path="res://Artwork/sprites/lightmap.png" type="Texture" index="3"></ext_resource>
+	<resource type="RectangleShape2D" path="local://14">
+		<real name="custom_solver_bias"> 0 </real>
+		<vector2 name="extents"> 10, 29.9429 </vector2>
+
+	</resource>
+	<resource type="SpriteFrames" path="local://3">
+		<array name="frames" len="1" shared="false">
+			<resource  external="1">  </resource>
+		</array>
+
+	</resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "names" </string>
+			<string_array  len="72">
+				<string> "Player" </string>
+				<string> "process/pause_mode" </string>
+				<string> "transform/pos" </string>
+				<string> "input/pickable" </string>
+				<string> "shapes/0/shape" </string>
+				<string> "shapes/0/transform" </string>
+				<string> "shapes/0/trigger" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "collision/margin" </string>
+				<string> "script/script" </string>
+				<string> "dir" </string>
+				<string> "action_range" </string>
+				<string> "KinematicBody2D" </string>
+				<string> "AnimatedSprite" </string>
+				<string> "frames" </string>
+				<string> "centered" </string>
+				<string> "CollisionShape2D" </string>
+				<string> "transform/scale" </string>
+				<string> "shape" </string>
+				<string> "trigger" </string>
+				<string> "_update_shape_index" </string>
+				<string> "Light2D" </string>
+				<string> "visibility/opacity" </string>
+				<string> "visibility/self_opacity" </string>
+				<string> "enabled" </string>
+				<string> "texture" </string>
+				<string> "offset" </string>
+				<string> "scale" </string>
+				<string> "color" </string>
+				<string> "energy" </string>
+				<string> "mode" </string>
+				<string> "range/height" </string>
+				<string> "range/z_min" </string>
+				<string> "range/z_max" </string>
+				<string> "range/layer_min" </string>
+				<string> "range/layer_max" </string>
+				<string> "range/item_mask" </string>
+				<string> "shadow/enabled" </string>
+				<string> "shadow/color" </string>
+				<string> "shadow/buffer_size" </string>
+				<string> "shadow/esm_multiplier" </string>
+				<string> "shadow/item_mask" </string>
+				<string> "Camera2D" </string>
+				<string> "anchor_mode" </string>
+				<string> "rotating" </string>
+				<string> "current" </string>
+				<string> "zoom" </string>
+				<string> "limit/left" </string>
+				<string> "limit/top" </string>
+				<string> "limit/right" </string>
+				<string> "limit/bottom" </string>
+				<string> "drag_margin/h_enabled" </string>
+				<string> "drag_margin/v_enabled" </string>
+				<string> "smoothing/enable" </string>
+				<string> "smoothing/speed" </string>
+				<string> "drag_margin/left" </string>
+				<string> "drag_margin/top" </string>
+				<string> "drag_margin/right" </string>
+				<string> "drag_margin/bottom" </string>
+				<string> "Light2D 2" </string>
+				<string> "FadeToBlackPanel" </string>
+				<string> "visibility/visible" </string>
+				<string> "margin/left" </string>
+				<string> "margin/top" </string>
+				<string> "margin/right" </string>
+				<string> "margin/bottom" </string>
+				<string> "focus/ignore_mouse" </string>
+				<string> "focus/stop_mouse" </string>
+				<string> "size_flags/horizontal" </string>
+				<string> "size_flags/vertical" </string>
+				<string> "Panel" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 7 </int>
+			<string> "node_paths" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="232"> 				-1, -1, 13, 0, -1, 12, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 2, 7, 5, 8, 5, 9, 6, 10, 7, 11, 0, 12, 8, 0, 0, 0, 14, 14, -1, 4, 2, 9, 15, 10, 16, 2, 10, 11, 0, 0, 0, 17, 17, -1, 5, 2, 12, 18, 13, 19, 3, 20, 2, 21, 14, 0, 0, 0, 22, 22, -1, 22, 23, 15, 24, 15, 2, 16, 18, 17, 25, 18, 26, 19, 27, 20, 28, 21, 29, 22, 30, 23, 31, 0, 32, 24, 33, 25, 34, 26, 35, 14, 36, 14, 37, 5, 38, 18, 39, 27, 40, 28, 41, 29, 42, 5, 0, 0, 0, 43, 43, -1, 18, 2, 30, 27, 31, 44, 14, 45, 2, 46, 18, 47, 32, 48, 33, 49, 33, 50, 34, 51, 34, 52, 18, 53, 18, 54, 2, 55, 35, 56, 36, 57, 36, 58, 36, 59, 36, 0, 0, 0, 22, 60, -1, 20, 2, 37, 18, 38, 25, 18, 26, 19, 27, 20, 28, 39, 29, 40, 30, 41, 31, 5, 32, 15, 33, 25, 34, 26, 35, 14, 36, 14, 37, 5, 38, 2, 39, 42, 40, 43, 41, 29, 42, 5, 0, 0, 0, 71, 61, -1, 10, 62, 2, 23, 15, 63, 44, 64, 45, 65, 46, 66, 47, 67, 2, 68, 18, 69, 0, 70, 0, 1, 61 </int_array>
+			<string> "variants" </string>
+			<array  len="48" shared="false">
+				<int> 2 </int>
+				<vector2> 672, 352 </vector2>
+				<bool> False </bool>
+				<resource  resource_type="Shape2D" path="local://14">  </resource>
+				<matrix32> 1.65385, -0, 0, 0.68498, 0.500003, 9.56521 </matrix32>
+				<int> 1 </int>
+				<real> 0.08 </real>
+				<resource  external="0">  </resource>
+				<int> 32 </int>
+				<vector2> -32, -32 </vector2>
+				<resource  resource_type="SpriteFrames" path="local://3">  </resource>
+				<resource  external="2">  </resource>
+				<vector2> 0.500003, 9.56521 </vector2>
+				<vector2> 1.65385, 0.68498 </vector2>
+				<int> 0 </int>
+				<real> 0 </real>
+				<vector2> 0.999985, 2.99999 </vector2>
+				<vector2> 5.2, 5.2 </vector2>
+				<bool> True </bool>
+				<resource  external="3">  </resource>
+				<vector2> 0, 0 </vector2>
+				<real> 1.5 </real>
+				<color> 0, 0, 0, 0.910859 </color>
+				<real> 1 </real>
+				<real> 16 </real>
+				<int> -1024 </int>
+				<int> 1024 </int>
+				<color> 0, 0, 0, 1 </color>
+				<int> 256 </int>
+				<real> 80 </real>
+				<vector2> 1, 0 </vector2>
+				<vector2> -640, -360 </vector2>
+				<vector2> 1, 1 </vector2>
+				<int> -10000000 </int>
+				<int> 10000000 </int>
+				<real> 5 </real>
+				<real> 0.2 </real>
+				<vector2> -1.75628, 2.49932 </vector2>
+				<vector2> 6.22373, 6.24776 </vector2>
+				<real> 2.5 </real>
+				<color> 0.613281, 0.60849, 0.60849, 1 </color>
+				<real> 1.2 </real>
+				<color> 0, 0, 0, 0 </color>
+				<int> 2048 </int>
+				<real> -672 </real>
+				<real> -352 </real>
+				<real> 608 </real>
+				<real> 416 </real>
+			</array>
+			<string> "version" </string>
+			<int> 2 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>
