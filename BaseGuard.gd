@@ -11,6 +11,8 @@ var can_see_player = false
 var is_frozen = false
 var frozen_duration = 0
 
+var _in_fixed_process = true
+
 func path_a_to_b(nav2d, a, b):
 	if a != null and b != null:
 		var a_nav2dpos = nav2d.get_global_transform().xform(a.get_global_pos())
@@ -29,12 +31,17 @@ func _ready():
 	sprite.idle_ani(direction)
 
 func _fixed_process(delta):
+	_in_fixed_process = true
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	try_see_player()
 	if can_see_player and player.color != color:
 		print(get_name() + " can see player! GAME OVER.")
+	_in_fixed_process = false
 	
 func try_see_player():
+	if not _in_fixed_process:
+		print("ALERT! try_see_player() called outside _fixed_process.")
+		return
 	var sprite = get_child(0)
 	var player = get_tree().get_nodes_in_group("Player")[0]
 
