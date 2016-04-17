@@ -23,6 +23,10 @@ func path_a_to_b(nav2d, a, b):
 		return path
 	return null
 
+func scale_cone_of_vision():
+	var cone = get_node("Cone of Vision/Sprite")
+	cone.set_scale(Vector2(view_range/8.0, view_range/8.0))
+
 func _ready():
 	set_fixed_process(true)
 	set_direction(direction)
@@ -33,6 +37,7 @@ func _ready():
 		sprite.tex = load("res://Artwork/sprites/" + color + "-" + type + "-spritesheet.png")
 	sprite.idle_ani(direction)
 	get_node("Cone of Vision/Sprite").set_modulate(colors[color])
+	scale_cone_of_vision()
 
 func _fixed_process(delta):
 	_in_fixed_process = true
