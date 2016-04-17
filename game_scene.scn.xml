@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="13" version="2.0" version_name="Godot Engine v2.0.stable.official">
+<resource_file type="PackedScene" subresource_count="11" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://character_sprite.gd" type="Script" index="3"></ext_resource>
-	<ext_resource path="res://player.gd" type="Script" index="1"></ext_resource>
-	<ext_resource path="res://guard.gd" type="Script" index="5"></ext_resource>
-	<ext_resource path="res://Artwork/sprites/lightmap.png" type="Texture" index="4"></ext_resource>
+	<ext_resource path="res://guard.gd" type="Script" index="1"></ext_resource>
 	<ext_resource path="res://icon.png" type="Texture" index="2"></ext_resource>
 	<ext_resource path="res://tileset1.res.xml" type="TileSet" index="0"></ext_resource>
+	<ext_resource path="res://player.scn" type="PackedScene" index="4"></ext_resource>
 	<resource type="GDScript" path="local://16">
 		<string name="script/source"> "" </string>
 
@@ -36,23 +35,18 @@
 		</array>
 
 	</resource>
-	<resource type="RectangleShape2D" path="local://14">
-		<real name="custom_solver_bias"> 0 </real>
-		<vector2 name="extents"> 10, 29.9429 </vector2>
-
-	</resource>
-	<resource type="SpriteFrames" path="local://3">
-		<array name="frames" len="1" shared="false">
-			<resource  external="2">  </resource>
-		</array>
-
-	</resource>
 	<resource type="Curve2D" path="local://4">
 		<real name="bake_interval"> 5 </real>
 		<dictionary name="_data" shared="false">
 			<string> "points" </string>
 			<vector2_array  len="63"> 				0, 0, 0, 0, 2, -253, 0, 0, 0, 0, 165, -361, 0, 0, 0, 0, 326, -272, 0, 0, 0, 0, 325, -85, 0, 0, 0, 0, 272, 62, 0, 0, 0, 0, 1, 121, 0, 0, 0, 0, -183, 48, 0, 0, 0, 0, -304, 72, 0, 0, 0, 0, -435, 56, 0, 0, 0, 0, -536, 61, 0, 0, 0, 0, -608, 22, 0, 0, 0, 0, -518, 0, 0, 0, 0, 0, -377, -5, 0, 0, 0, 0, -340, -79, 0, 0, 0, 0, -360, -128, 0, 0, 0, 0, -371, -215, 0, 0, 0, 0, -280, -261, 0, 0, 0, 0, -157, -283, 0, 0, 0, 0, -92, -258, 0, 0, 0, 0, -32, -259, 0, 0, 0, 0, 2, -253 </vector2_array>
 		</dictionary>
+
+	</resource>
+	<resource type="SpriteFrames" path="local://3">
+		<array name="frames" len="1" shared="false">
+			<resource  external="2">  </resource>
+		</array>
 
 	</resource>
 	<main_resource>
@@ -65,7 +59,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="114">
+			<string_array  len="66">
 				<string> "Node2D" </string>
 				<string> "Navigation2D" </string>
 				<string> "script/script" </string>
@@ -95,63 +89,12 @@
 				<string> "transform/scale" </string>
 				<string> "navpoly" </string>
 				<string> "enabled" </string>
-				<string> "Player" </string>
-				<string> "process/pause_mode" </string>
-				<string> "input/pickable" </string>
-				<string> "shapes/0/shape" </string>
-				<string> "shapes/0/transform" </string>
-				<string> "shapes/0/trigger" </string>
-				<string> "collision/margin" </string>
-				<string> "KinematicBody2D" </string>
-				<string> "AnimatedSprite" </string>
-				<string> "frames" </string>
-				<string> "centered" </string>
-				<string> "CollisionShape2D" </string>
-				<string> "shape" </string>
-				<string> "trigger" </string>
-				<string> "_update_shape_index" </string>
-				<string> "Light2D" </string>
-				<string> "visibility/opacity" </string>
-				<string> "visibility/self_opacity" </string>
-				<string> "texture" </string>
-				<string> "offset" </string>
-				<string> "scale" </string>
-				<string> "color" </string>
-				<string> "energy" </string>
-				<string> "range/height" </string>
-				<string> "range/z_min" </string>
-				<string> "range/z_max" </string>
-				<string> "range/layer_min" </string>
-				<string> "range/layer_max" </string>
-				<string> "range/item_mask" </string>
-				<string> "shadow/enabled" </string>
-				<string> "shadow/color" </string>
-				<string> "shadow/buffer_size" </string>
-				<string> "shadow/esm_multiplier" </string>
-				<string> "shadow/item_mask" </string>
-				<string> "Camera2D" </string>
-				<string> "anchor_mode" </string>
-				<string> "rotating" </string>
-				<string> "current" </string>
-				<string> "zoom" </string>
-				<string> "limit/left" </string>
-				<string> "limit/top" </string>
-				<string> "limit/right" </string>
-				<string> "limit/bottom" </string>
-				<string> "drag_margin/h_enabled" </string>
-				<string> "drag_margin/v_enabled" </string>
-				<string> "smoothing/enable" </string>
-				<string> "smoothing/speed" </string>
-				<string> "drag_margin/left" </string>
-				<string> "drag_margin/top" </string>
-				<string> "drag_margin/right" </string>
-				<string> "drag_margin/bottom" </string>
-				<string> "Light2D 2" </string>
 				<string> "Guard" </string>
 				<string> "curve" </string>
 				<string> "Path2D" </string>
 				<string> "Mind" </string>
 				<string> "transform/rot" </string>
+				<string> "offset" </string>
 				<string> "h_offset" </string>
 				<string> "v_offset" </string>
 				<string> "rotate" </string>
@@ -159,6 +102,8 @@
 				<string> "loop" </string>
 				<string> "lookahead" </string>
 				<string> "PathFollow2D" </string>
+				<string> "AnimatedSprite" </string>
+				<string> "frames" </string>
 				<string> "Particles2D" </string>
 				<string> "visibility/visible" </string>
 				<string> "config/amount" </string>
@@ -180,16 +125,17 @@
 				<string> "params/anim_speed_scale" </string>
 				<string> "params/anim_initial_pos" </string>
 				<string> "color/color" </string>
+				<string> "Player" </string>
 			</string_array>
 			<string> "node_count" </string>
-			<int> 15 </int>
+			<int> 10 </int>
 			<string> "node_paths" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="385"> 				-1, -1, 0, 0, -1, 0, 0, 0, 0, 1, 1, -1, 1, 2, 0, 0, 1, 0, 3, 3, -1, 16, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 1, 11, 7, 12, 8, 13, 9, 14, 9, 15, 10, 16, 10, 17, 10, 18, 11, 19, 12, 0, 2, 0, 20, 20, -1, 4, 21, 10, 22, 13, 23, 14, 24, 10, 0, 1, 0, 25, 25, -1, 4, 22, 15, 26, 16, 27, 17, 28, 8, 0, 1, 0, 36, 29, -1, 10, 30, 6, 22, 18, 31, 7, 32, 19, 33, 20, 34, 7, 15, 10, 16, 10, 35, 21, 2, 22, 0, 5, 0, 37, 37, -1, 4, 22, 23, 38, 24, 39, 7, 2, 25, 0, 5, 0, 40, 40, -1, 5, 22, 26, 26, 27, 41, 19, 42, 7, 43, 1, 0, 5, 0, 44, 44, -1, 22, 45, 9, 46, 9, 22, 28, 26, 29, 28, 8, 47, 30, 48, 31, 49, 32, 50, 33, 51, 34, 4, 6, 52, 35, 53, 36, 54, 37, 55, 1, 56, 1, 57, 10, 58, 8, 59, 38, 60, 39, 61, 40, 62, 10, 0, 5, 0, 63, 63, -1, 18, 22, 41, 48, 42, 64, 1, 65, 7, 66, 8, 67, 43, 68, 44, 69, 44, 70, 45, 71, 45, 72, 8, 73, 8, 74, 7, 75, 46, 76, 47, 77, 47, 78, 47, 79, 47, 0, 5, 0, 44, 80, -1, 20, 22, 48, 26, 49, 28, 8, 47, 30, 48, 31, 49, 50, 50, 51, 51, 52, 4, 10, 52, 9, 53, 36, 54, 37, 55, 1, 56, 1, 57, 10, 58, 7, 59, 53, 60, 54, 61, 40, 62, 10, 0, 1, 0, 83, 81, -1, 2, 22, 55, 82, 56, 0, 11, 0, 92, 84, -1, 10, 22, 57, 85, 58, 48, 9, 86, 9, 87, 9, 88, 8, 89, 8, 90, 8, 91, 59, 2, 60, 0, 12, 0, 37, 37, -1, 3, 22, 61, 38, 24, 2, 25, 0, 13, 0, 93, 93, -1, 21, 94, 7, 21, 10, 95, 62, 96, 63, 97, 64, 98, 65, 99, 66, 100, 9, 101, 9, 102, 9, 103, 9, 104, 9, 105, 9, 106, 9, 107, 9, 108, 59, 109, 34, 110, 9, 111, 34, 112, 9, 113, 67, 0 </int_array>
+			<int_array  len="194"> 				-1, -1, 0, 0, -1, 0, 0, 0, 0, 1, 1, -1, 1, 2, 0, 0, 1, 0, 3, 3, -1, 16, 4, 1, 5, 2, 6, 3, 7, 4, 8, 5, 9, 6, 10, 1, 11, 7, 12, 8, 13, 9, 14, 9, 15, 10, 16, 10, 17, 10, 18, 11, 19, 12, 0, 2, 0, 20, 20, -1, 4, 21, 10, 22, 13, 23, 14, 24, 10, 0, 1, 0, 25, 25, -1, 4, 22, 15, 26, 16, 27, 17, 28, 8, 0, 1, 0, 31, 29, -1, 2, 22, 18, 30, 19, 0, 5, 0, 41, 32, -1, 10, 22, 20, 33, 21, 34, 9, 35, 9, 36, 9, 37, 8, 38, 8, 39, 8, 40, 22, 2, 23, 0, 6, 0, 42, 42, -1, 3, 22, 24, 43, 25, 2, 26, 0, 7, 0, 44, 44, -1, 21, 45, 7, 21, 10, 46, 27, 47, 28, 48, 29, 49, 30, 50, 31, 51, 9, 52, 9, 53, 9, 54, 9, 55, 9, 56, 9, 57, 9, 58, 9, 59, 22, 60, 32, 61, 9, 62, 32, 63, 9, 64, 33, 0, 1, 0, 2147483647, 65, 34, 1, 22, 35, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="68" shared="false">
+			<array  len="36" shared="false">
 				<resource  resource_type="Script" path="local://16">  </resource>
 				<int> 0 </int>
 				<resource  external="0">  </resource>
@@ -211,56 +157,24 @@
 				<vector2> 604.5, 676.5 </vector2>
 				<vector2> 19.8906, 22.1406 </vector2>
 				<resource  resource_type="NavigationPolygon" path="local://15">  </resource>
-				<vector2> 672, 352 </vector2>
-				<resource  resource_type="Shape2D" path="local://14">  </resource>
-				<matrix32> 1.65385, -0, 0, 0.68498, 0.500003, 9.56521 </matrix32>
-				<real> 0.08 </real>
-				<resource  external="1">  </resource>
-				<vector2> -32, -32 </vector2>
-				<resource  resource_type="SpriteFrames" path="local://3">  </resource>
-				<resource  external="3">  </resource>
-				<vector2> 0.500003, 9.56521 </vector2>
-				<vector2> 1.65385, 0.68498 </vector2>
-				<vector2> 0.999985, 2.99999 </vector2>
-				<vector2> 5.2, 5.2 </vector2>
-				<resource  external="4">  </resource>
-				<vector2> 0, 0 </vector2>
-				<real> 1.5 </real>
-				<color> 0, 0, 0, 0.910859 </color>
-				<real> 1 </real>
-				<real> 16 </real>
-				<int> -1024 </int>
-				<int> 1024 </int>
-				<color> 0, 0, 0, 1 </color>
-				<int> 256 </int>
-				<real> 80 </real>
-				<vector2> 1, 0 </vector2>
-				<vector2> -640, -360 </vector2>
-				<vector2> 1, 1 </vector2>
-				<int> -10000000 </int>
-				<int> 10000000 </int>
-				<real> 5 </real>
-				<real> 0.2 </real>
-				<vector2> -1.75628, 2.49932 </vector2>
-				<vector2> 6.22373, 6.24776 </vector2>
-				<real> 2.5 </real>
-				<color> 0.613281, 0.60849, 0.60849, 1 </color>
-				<real> 1.2 </real>
-				<color> 0, 0, 0, 0 </color>
-				<int> 2048 </int>
 				<vector2> 913, 480 </vector2>
 				<resource  resource_type="Curve2D" path="local://4">  </resource>
 				<vector2> 6.16827, -255.762 </vector2>
 				<real> 33.52718 </real>
 				<real> 4 </real>
-				<resource  external="5">  </resource>
+				<resource  external="1">  </resource>
 				<vector2> -5.01031, 3.05176e-05 </vector2>
+				<resource  resource_type="SpriteFrames" path="local://3">  </resource>
+				<resource  external="3">  </resource>
 				<int> 260 </int>
 				<real> 0.760352 </real>
 				<real> 287.419983 </real>
 				<real> 180 </real>
 				<real> 35 </real>
+				<real> 1 </real>
 				<color> 1, 0.222656, 0.222656, 1 </color>
+				<resource  external="4">  </resource>
+				<vector2> 657.036, 429.541 </vector2>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>

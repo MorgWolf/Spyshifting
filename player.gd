@@ -6,6 +6,8 @@ var ani = false
 var char_color = "mc"
 var char_type = ""
 
+export var action_range = 0 # = 999 * 64
+
 func update_sprite(sprite):
 	if char_type == "":
 		sprite.tex = load("res://Artwork/sprites/" + char_color + "-spritesheet.png")
@@ -50,8 +52,8 @@ func _process(delta):
 		get_tree().set_pause(true)
 	if Input.is_key_pressed(KEY_SPACE):
 		get_tree().set_pause(false)
-
-		var min_dist = 999 * 64
+		
+		var min_dist = action_range
 		var closest_guard = null
 		for child in get_parent().get_children():
 			if child.get_name() == "Guard":
@@ -61,7 +63,7 @@ func _process(delta):
 				else:
 					guard = child
 				
-				var dist = guard.get_global_pos().distance_to(child.get_global_pos())
+				var dist = guard.get_global_pos().distance_to(get_global_pos())
 				if dist < min_dist:
 					min_dist = dist
 					closest_guard = guard
