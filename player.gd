@@ -13,8 +13,8 @@ var ignore_input = false
 var can_attack = true
 
 export var attack_cooldown = 0.5 
-export var action_range = 32
-export var player_speed_tiles = 3.0
+export var action_range = 64 * 0.75  # distance for attack to succeed: 0.75 tiles
+export var player_speed_tiles = 3.0  # in tiles per second
 
 var shapeshift_from = ""
 
