@@ -23,10 +23,6 @@ func path_a_to_b(nav2d, a, b):
 		return path
 	return null
 
-func scale_cone_of_vision():
-	var cone = get_node("Cone of Vision/Sprite")
-	cone.set_scale(Vector2(view_range/8.0, view_range/8.0))
-
 func _ready():
 	set_fixed_process(true)
 	set_direction(direction)
@@ -36,8 +32,13 @@ func _ready():
 	if sprite.tex == null:
 		sprite.tex = load("res://Artwork/sprites/" + color + "-" + type + "-spritesheet.png")
 	sprite.idle_ani(direction)
-	get_node("Cone of Vision/Sprite").set_modulate(colors[color])
-	scale_cone_of_vision()
+	sprite.set_rot(0)
+	set_rot(0)
+	var cone = get_node("Cone of Vision")
+	cone.set_rot(direction * 3.14159/2)
+	var coneSprite = cone.get_node("Sprite")
+	coneSprite.set_modulate(colors[color])
+	coneSprite.set_scale(Vector2(view_range/8.0, view_range/8.0))
 
 func _fixed_process(delta):
 	_in_fixed_process = true
@@ -47,7 +48,7 @@ func _fixed_process(delta):
 		# Player was spotted, we restart the scene!
 		player.transition_new_scene(get_tree().get_current_scene().get_filename())
 	_in_fixed_process = false
-	
+
 func try_see_player():
 	if not _in_fixed_process:
 		print("ALERT! try_see_player() called outside _fixed_process.")
@@ -57,6 +58,12 @@ func try_see_player():
 
 	# based on where the player is, and based on direction we're facing, can we see the player?
 	var distance = player.get_global_pos().distance_to(sprite.get_global_pos())
+
+	if distance < 0.25 * 64:
+		# critical closeness. no more checks needed.
+		can_see_player = true
+		return
+
 	var close_enough = distance < view_range * 64
 
 	if close_enough:
