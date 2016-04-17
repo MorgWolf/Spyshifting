@@ -19,7 +19,6 @@ func _ready():
 	var sprite = get_node("AnimatedSprite")
 	if sprite.tex == null:
 		update_sprite(sprite)
-	
 
 func _process(delta):
 
@@ -53,30 +52,22 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_SPACE):
 		get_tree().set_pause(false)
 		
-		#var min_dist = action_range
-		#var closest_guard = null
-		#for child in get_parent().get_children():
-		#	if child.get_name() == "Guard":
-		#		var guard = null
-		#		if child.has_node("Mind"):
-		#			guard = child.get_node("Mind")
-		#		else:
-		#			guard = child
-		#		
-		#		var dist = guard.get_global_pos().distance_to(get_global_pos())
-		#		if dist < min_dist:
-		#			min_dist = dist
-		#			closest_guard = guard
-		#if closest_guard != null:
-		#	color = closest_guard.color
-		#	type = closest_guard.type
-		#	update_sprite(sprite)
+		var min_dist = action_range
+		var closest_guard = null
+		for n in get_tree().get_nodes_in_group("Enemies"):
+			var dist = n.get_global_pos().distance_to(get_global_pos())
+			if dist < min_dist:
+				min_dist = dist
+				closest_guard = n
+		if closest_guard != null:
+			color = closest_guard.color
+			type = closest_guard.type
+			update_sprite(sprite)
 
 	if vel.x == 0 and vel.y == 0:
 		ani = false
 
 	move(vel * delta)
-
 
 	if ani:
 		sprite.move_ani(dir)
