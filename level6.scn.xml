@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resource_file type="PackedScene" subresource_count="9" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://base_level.scn.xml" type="PackedScene" index="0"></ext_resource>
+	<ext_resource path="res://RotatingGuard.scn.xml" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://tileset1.res.xml" type="TileSet" index="1"></ext_resource>
+	<ext_resource path="res://BaseGuard.scn.xml" type="PackedScene" index="3"></ext_resource>
+	<ext_resource path="res://exit.scn.xml" type="PackedScene" index="5"></ext_resource>
+	<ext_resource path="res://player.scn.xml" type="PackedScene" index="4"></ext_resource>
+	<resource type="NavigationPolygon" path="local://1">
+		<vector2_array name="vertices" len="12"> 			288, -416, 288, 224, 96, 32, 96, -96, -32, 224, -32, 32, 96, -224, 96, -416, -352, -224, -32, -96, -32, 416, -352, 416 </vector2_array>
+		<array name="polygons" len="9" shared="false">
+			<int_array  len="4"> 				0, 1, 2, 3 </int_array>
+			<int_array  len="4"> 				2, 1, 4, 5 </int_array>
+			<int_array  len="3"> 				6, 7, 0 </int_array>
+			<int_array  len="3"> 				6, 0, 3 </int_array>
+			<int_array  len="4"> 				8, 6, 3, 9 </int_array>
+			<int_array  len="4"> 				4, 10, 11, 8 </int_array>
+			<int_array  len="3"> 				5, 4, 8 </int_array>
+			<int_array  len="3"> 				9, 5, 8 </int_array>
+			<int_array  len="3"> 				8, 8, 9 </int_array>
+		</array>
+		<array name="outlines" len="2" shared="false">
+			<vector2_array  len="9"> 				-352, -224, 96, -224, 96, -416, 288, -416, 288, 224, -32, 224, -32, 416, -352, 416, -352, -224 </vector2_array>
+			<vector2_array  len="4"> 				-32, -96, 96, -96, 96, 32, -32, 32 </vector2_array>
+		</array>
+
+	</resource>
+	<resource type="OccluderPolygon2D" path="local://2">
+		<bool name="closed"> False </bool>
+		<int name="cull_mode"> 1 </int>
+		<vector2_array name="polygon" len="5"> 			832, 256, 960, 256, 960, 384, 832, 384, 832, 256 </vector2_array>
+
+	</resource>
+	<main_resource>
+		<dictionary name="_bundled" shared="false">
+			<string> "base_scene" </string>
+			<int> 0 </int>
+			<string> "conn_count" </string>
+			<int> 0 </int>
+			<string> "conns" </string>
+			<int_array  len="0"> 				 </int_array>
+			<string> "editable_instances" </string>
+			<array  len="0" shared="false">
+			</array>
+			<string> "names" </string>
+			<string_array  len="36">
+				<string> "Node2D" </string>
+				<string> "Navigation2D" </string>
+				<string> "TileMap" </string>
+				<string> "mode" </string>
+				<string> "tile_set" </string>
+				<string> "cell/size" </string>
+				<string> "cell/quadrant_size" </string>
+				<string> "cell/custom_transform" </string>
+				<string> "cell/half_offset" </string>
+				<string> "cell/tile_origin" </string>
+				<string> "cell/y_sort" </string>
+				<string> "collision/use_kinematic" </string>
+				<string> "collision/friction" </string>
+				<string> "collision/bounce" </string>
+				<string> "collision/layers" </string>
+				<string> "collision/mask" </string>
+				<string> "occluder/light_mask" </string>
+				<string> "tile_data" </string>
+				<string> "Guard" </string>
+				<string> "transform/pos" </string>
+				<string> "color" </string>
+				<string> "type" </string>
+				<string> "view_range" </string>
+				<string> "frozen_timeout" </string>
+				<string> "Guard 2" </string>
+				<string> "transform/rot" </string>
+				<string> "direction" </string>
+				<string> "Player" </string>
+				<string> "NavigationPolygonInstance" </string>
+				<string> "navpoly" </string>
+				<string> "enabled" </string>
+				<string> "LightOccluder2D" </string>
+				<string> "occluder" </string>
+				<string> "light_mask" </string>
+				<string> "Exit" </string>
+				<string> "BGM" </string>
+			</string_array>
+			<string> "node_count" </string>
+			<int> 8 </int>
+			<string> "node_paths" </string>
+			<array  len="1" shared="false">
+				<node_path> "Navigation2D" </node_path>
+			</array>
+			<string> "nodes" </string>
+			<int_array  len="122"> 				-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2, 2, -1, 15, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 1, 10, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 10, 16, 10, 17, 11, 0, 1073741824, 0, 2147483647, 18, 12, 5, 19, 13, 20, 14, 21, 15, 22, 16, 23, 17, 0, 1073741824, 0, 2147483647, 24, 18, 6, 19, 19, 25, 20, 20, 14, 21, 21, 26, 6, 22, 22, 0, 1073741824, 0, 2147483647, 27, 23, 1, 19, 24, 0, 1073741824, 0, 28, 28, -1, 3, 19, 25, 29, 26, 30, 27, 0, 1073741824, 0, 31, 31, -1, 2, 32, 28, 33, 10, 0, 1073741824, 0, 2147483647, 34, 29, 1, 19, 30, 0 </int_array>
+			<string> "variants" </string>
+			<array  len="31" shared="false">
+				<resource  external="0">  </resource>
+				<int> 0 </int>
+				<resource  external="1">  </resource>
+				<vector2> 64, 64 </vector2>
+				<int> 16 </int>
+				<matrix32> 1, 0, 0, 1, 0, 0 </matrix32>
+				<int> 2 </int>
+				<bool> False </bool>
+				<real> 1 </real>
+				<real> 0 </real>
+				<int> 1 </int>
+				<int_array  len="180"> 					-65521, 9, -65520, 9, -65519, 9, 15, 9, 16, 9, 17, 9, 65551, 9, 65552, 9, 65553, 9, 131080, 9, 131081, 9, 131082, 9, 131083, 9, 131084, 9, 131085, 9, 131086, 9, 131087, 9, 131088, 9, 131089, 9, 196616, 9, 196617, 9, 196618, 9, 196619, 9, 196620, 9, 196621, 9, 196622, 9, 196623, 9, 196624, 9, 196625, 9, 262152, 9, 262153, 9, 262154, 9, 262155, 9, 262156, 9, 262159, 9, 262160, 9, 262161, 9, 327688, 9, 327689, 9, 327690, 9, 327691, 9, 327692, 9, 327695, 9, 327696, 9, 327697, 9, 393224, 9, 393225, 9, 393226, 9, 393227, 9, 393228, 9, 393229, 9, 393230, 9, 393231, 9, 393232, 9, 393233, 9, 458760, 9, 458761, 9, 458762, 9, 458763, 9, 458764, 9, 458765, 9, 458766, 9, 458767, 9, 458768, 9, 458769, 9, 524296, 9, 524297, 9, 524298, 9, 524299, 9, 524300, 9, 524301, 9, 524302, 9, 524303, 9, 524304, 9, 524305, 9, 589832, 9, 589833, 9, 589834, 9, 589835, 9, 589836, 9, 655368, 9, 655369, 9, 655370, 9, 655371, 9, 655372, 9, 720904, 9, 720905, 9, 720906, 9, 720907, 9, 720908, 9 </int_array>
+				<resource  external="2">  </resource>
+				<vector2> 672, 480 </vector2>
+				<string> "blue" </string>
+				<string> "beard" </string>
+				<int> 6 </int>
+				<int> 5 </int>
+				<resource  external="3">  </resource>
+				<vector2> 1120, 32 </vector2>
+				<real> 180 </real>
+				<string> "fat" </string>
+				<int> 3 </int>
+				<resource  external="4">  </resource>
+				<vector2> 1120, 224 </vector2>
+				<vector2> 864, 352 </vector2>
+				<resource  resource_type="NavigationPolygon" path="local://1">  </resource>
+				<bool> True </bool>
+				<resource  resource_type="OccluderPolygon2D" path="local://2">  </resource>
+				<resource  external="5">  </resource>
+				<vector2> 1056, -32 </vector2>
+			</array>
+			<string> "version" </string>
+			<int> 2 </int>
+		</dictionary>
+
+	</main_resource>
+</resource_file>

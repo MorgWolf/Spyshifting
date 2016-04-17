@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="6" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://level_pick.gd" type="Script" index="1"></ext_resource>
 	<ext_resource path="res://Artwork/music/PianoMusic_IntroMusic_session.ogg" type="AudioStream" index="0"></ext_resource>
 	<resource type="GDScript" path="local://3">
 		<string name="script/source"> "extends Panel&#000a;&#000a;func _ready():&#000a;&#0009;set_process(true)&#000a;&#000a;func _process(delta):&#000a;&#0009;if Input.is_key_pressed(KEY_SPACE):&#000a;&#0009;&#0009;get_tree().change_scene(&quot;res://level1.scn.xml&quot;)&#000a;&#0009;if Input.is_key_pressed(KEY_ESCAPE):&#000a;&#0009;&#0009;get_tree().quit()&#000a;" </string>
@@ -11,10 +12,6 @@
 	</resource>
 	<resource type="GDScript" path="local://2">
 		<string name="script/source"> "extends Button&#000a;&#000a;func _pressed():&#000a;&#0009;get_tree().quit()&#000a;" </string>
-
-	</resource>
-	<resource type="GDScript" path="local://4">
-		<string name="script/source"> "extends OptionButton&#000a;func _ready():&#000a;&#0009;self.add_item(&quot;Level 1&quot;)&#000a;&#0009;self.add_item(&quot;Level 2&quot;)&#000a;&#0009;self.add_item(&quot;Level 3&quot;)&#000a;&#0009;self.add_item(&quot;Level 4&quot;)&#000a;&#0009;self.add_item(&quot;Level 5&quot;)&#000a;" </string>
 
 	</resource>
 	<main_resource>
@@ -74,9 +71,9 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="277"> 				-1, -1, 0, 0, -1, 7, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 4, 7, 5, 0, 0, 0, 8, 8, -1, 13, 9, 6, 10, 7, 1, 8, 2, 9, 11, 10, 3, 3, 4, 3, 5, 4, 12, 11, 13, 12, 14, 13, 15, 14, 16, 15, 0, 0, 0, 17, 17, -1, 13, 9, 16, 10, 17, 1, 18, 2, 19, 3, 2, 4, 3, 5, 4, 6, 4, 18, 2, 19, 3, 12, 20, 20, 2, 7, 21, 0, 0, 0, 17, 21, -1, 13, 9, 16, 10, 19, 1, 18, 2, 22, 3, 2, 4, 3, 5, 4, 6, 4, 18, 2, 19, 3, 12, 23, 20, 2, 7, 24, 0, 0, 0, 22, 22, -1, 8, 23, 25, 24, 2, 25, 2, 26, 26, 27, 3, 28, 2, 29, 26, 30, 27, 0, 0, 0, 8, 31, -1, 12, 9, 6, 10, 28, 1, 29, 2, 16, 3, 3, 4, 3, 5, 4, 12, 30, 32, 4, 14, 13, 15, 14, 16, 15, 0, 0, 0, 8, 33, -1, 13, 9, 31, 10, 28, 1, 32, 2, 16, 3, 3, 4, 3, 5, 4, 12, 33, 13, 4, 32, 4, 14, 13, 15, 14, 16, 15, 0, 0, 0, 8, 34, -1, 13, 9, 34, 10, 35, 1, 16, 2, 36, 3, 3, 4, 3, 5, 4, 12, 37, 13, 12, 32, 4, 14, 13, 15, 14, 16, 15, 0, 0, 0, 38, 35, -1, 15, 9, 16, 10, 29, 1, 18, 2, 38, 3, 2, 4, 3, 5, 4, 6, 4, 18, 2, 12, 39, 20, 2, 13, 14, 36, 15, 37, 40, 7, 41, 0 </int_array>
+			<int_array  len="275"> 				-1, -1, 0, 0, -1, 7, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 6, 4, 7, 5, 0, 0, 0, 8, 8, -1, 13, 9, 6, 10, 7, 1, 8, 2, 9, 11, 10, 3, 3, 4, 3, 5, 4, 12, 11, 13, 12, 14, 13, 15, 14, 16, 15, 0, 0, 0, 17, 17, -1, 13, 9, 16, 10, 17, 1, 18, 2, 19, 3, 2, 4, 3, 5, 4, 6, 4, 18, 2, 19, 3, 12, 20, 20, 2, 7, 21, 0, 0, 0, 17, 21, -1, 13, 9, 16, 10, 19, 1, 18, 2, 22, 3, 2, 4, 3, 5, 4, 6, 4, 18, 2, 19, 3, 12, 23, 20, 2, 7, 24, 0, 0, 0, 22, 22, -1, 8, 23, 25, 24, 2, 25, 2, 26, 26, 27, 3, 28, 2, 29, 26, 30, 27, 0, 0, 0, 8, 31, -1, 12, 9, 6, 10, 28, 1, 29, 2, 16, 3, 3, 4, 3, 5, 4, 12, 30, 32, 4, 14, 13, 15, 14, 16, 15, 0, 0, 0, 8, 33, -1, 13, 9, 31, 10, 28, 1, 32, 2, 16, 3, 3, 4, 3, 5, 4, 12, 33, 13, 4, 32, 4, 14, 13, 15, 14, 16, 15, 0, 0, 0, 8, 34, -1, 13, 9, 34, 10, 35, 1, 16, 2, 36, 3, 3, 4, 3, 5, 4, 12, 37, 13, 12, 32, 4, 14, 13, 15, 14, 16, 15, 0, 0, 0, 38, 35, -1, 14, 9, 16, 10, 29, 1, 18, 2, 38, 3, 2, 4, 3, 5, 4, 6, 4, 18, 2, 20, 2, 13, 14, 36, 15, 37, 39, 7, 40, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="42" shared="false">
+			<array  len="41" shared="false">
 				<real> 1280 </real>
 				<real> 768 </real>
 				<bool> False </bool>
@@ -116,10 +113,9 @@
 				<real> 602 </real>
 				<string> "Press space to play.&#000a;Press escape to exit." </string>
 				<real> 275 </real>
-				<string> "test;test;" </string>
 				<array  len="0" shared="false">
 				</array>
-				<resource  resource_type="Script" path="local://4">  </resource>
+				<resource  external="1">  </resource>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
