@@ -25,7 +25,7 @@
 
 	</resource>
 	<resource type="GDScript" path="local://16">
-		<string name="script/source"> "extends Button&#000a;&#000a;func _pressed():&#000a;&#0009;get_tree().set_pause(false)&#000a;&#0009;get_parent().set_hidden(true)&#000a;&#0009;get_tree().get_nodes_in_group(&quot;Player&quot;)[0].pause_start = OS.get_ticks_msec()&#000a;&#000a;func _process(delta):&#000a;&#0009;if get_tree().is_paused() and OS.get_ticks_msec() - get_tree().get_nodes_in_group(&quot;Player&quot;)[0].pause_start &gt; 150:&#000a;&#0009;&#0009;if Input.is_key_pressed(KEY_ESCAPE):&#000a;&#0009;&#0009;&#0009;_pressed()&#000a;&#000a;func _ready():&#000a;&#0009;set_process(true)&#000a;&#000a;" </string>
+		<string name="script/source"> "extends Button&#000a;&#000a;func _pressed():&#000a;&#0009;get_tree().set_pause(false)&#000a;&#0009;get_parent().set_hidden(true)&#000a;&#000a;&#000a;" </string>
 
 	</resource>
 	<main_resource>
@@ -235,6 +235,7 @@
 				<real> -352 </real>
 				<real> 608 </real>
 				<real> 416 </real>
+				<vector2> 0.814514, -1.629 </vector2>
 				<int> 32 </int>
 				<real> 2 </real>
 				<real> 4 </real>
