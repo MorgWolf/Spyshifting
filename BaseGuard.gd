@@ -25,6 +25,7 @@ func _ready():
 	set_fixed_process(true)
 	set_direction(direction)
 	add_to_group("Enemies")
+	add_to_group("Ephemerals")
 	var sprite = get_node("AnimatedSprite")
 	if sprite.tex == null:
 		sprite.tex = load("res://Artwork/sprites/" + color + "-" + type + "-spritesheet.png")
@@ -35,7 +36,8 @@ func _fixed_process(delta):
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	try_see_player()
 	if can_see_player and player.color != color:
-		print(get_name() + " can see player " + player.get_name() + "! GAME OVER.")
+		# Player was spotted, we restart the scene!
+		player.transition_new_scene(get_tree().get_current_scene().get_filename())
 	_in_fixed_process = false
 	
 func try_see_player():
@@ -90,7 +92,6 @@ func _on_FrozenTimer_timeout():
 	var timer = get_node("./FrozenTimer")
 	frozen_duration += timer.get_wait_time()
 	if frozen_duration >= frozen_timeout:
-		#TODO: remove transformation from player
 		var player = get_tree().get_nodes_in_group("Player")[0]
 		player.lose_power(get_name())
 		set_hidden(false)
