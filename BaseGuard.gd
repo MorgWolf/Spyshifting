@@ -13,7 +13,7 @@ var frozen_duration = 0
 
 var _in_fixed_process = true
 
-var colors = {"red": Color(0.8,0.2,0.2), "blue": Color(0.2,0.2,0.8), "green": Color(0.2,0.8,0.2), "yellow": Color(0.5,0.5,0.2) }
+var colors = {"red": Color(0.8,0.2,0.2), "blue": Color(0.2,0.2,0.8), "green": Color(0.2,0.8,0.2), "yellow": Color(0.5,0.5,0.24) }
 
 func path_a_to_b(nav2d, a, b):
 	if a != null and b != null:
@@ -87,6 +87,8 @@ func on_attack():
 	is_frozen = true
 	frozen_duration = 0
 	get_node("./FrozenTimer").start()
+	get_node("AttackedParticles").set_emitting(true)
+	get_node("AttackedParticles/Timer").start()
 
 func _on_FrozenTimer_timeout():
 	set_hidden(is_visible())
@@ -101,3 +103,7 @@ func _on_FrozenTimer_timeout():
 		cone.set_hidden(false)
 		is_frozen = false
 		timer.stop()
+
+
+func _on_AttackedTimer_timeout():
+	get_node("AttackedParticles").set_emitting(false)
