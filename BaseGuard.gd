@@ -44,7 +44,7 @@ func _fixed_process(delta):
 	_in_fixed_process = true
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	try_see_player()
-	if can_see_player and player.color != color:
+	if can_see_player and player.color != color and !is_frozen:
 		# Player was spotted, we restart the scene!
 		player.transition_new_scene(get_tree().get_current_scene().get_filename())
 	_in_fixed_process = false
