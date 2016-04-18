@@ -108,6 +108,8 @@ func handle_attack():
 	get_node("AttackParticles").set_emitting(true)
 	get_node("AttackParticles/Timer").start()
 	get_node("AttackCooldown").start()
+	if !get_node("/root/globals").audio_muted:
+		get_node("ShapeshiftOn").play()
 	for n in get_tree().get_nodes_in_group("Enemies"):
 		var dist = n.get_global_pos().distance_to(get_global_pos())
 		if dist < min_dist:
@@ -130,6 +132,8 @@ func lose_power(name):
 	# Drop your power if the name of the guard that we attacked is the same
 	# as the latest guard we attacked (it means timer expired)
 	if shapeshift_from == name:
+		if !get_node("/root/globals").audio_muted:
+			get_node("ShapeshiftOff").play()
 		shapeshift_from = ""
 		color = "mc"
 		type = ""
@@ -137,6 +141,7 @@ func lose_power(name):
 		update_sprite(sprite)
 		get_node("TextureProgress").set_hidden(true)
 		get_node("TextureProgress/ShapeshiftTimer").stop()
+		
 		
 
 func transition_new_scene(new_scene_name):
