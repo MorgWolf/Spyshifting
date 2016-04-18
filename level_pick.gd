@@ -10,3 +10,4 @@ func _ready():
 	self.add_item("Level 8")
 	self.add_item("Level 9")
 	self.add_item("Level 10")
+	self.add_item("Level 11")
