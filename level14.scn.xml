@@ -201,7 +201,7 @@
 				<bool> True </bool>
 				<resource  external="3">  </resource>
 				<vector2> 704.254, 1410.35 </vector2>
-				<string> "res://level12.scn.xml" </string>
+				<string> "" </string>
 				<resource  external="4">  </resource>
 				<vector2> 352, 288 </vector2>
 				<string> "blue" </string>
