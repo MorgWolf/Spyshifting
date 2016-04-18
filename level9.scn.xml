@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="13" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://tileset1.res.xml" type="TileSet" index="1"></ext_resource>
-	<ext_resource path="res://player.scn.xml" type="PackedScene" index="5"></ext_resource>
-	<ext_resource path="res://base_level.scn.xml" type="PackedScene" index="0"></ext_resource>
-	<ext_resource path="res://RotatingGuard.scn.xml" type="PackedScene" index="4"></ext_resource>
 	<ext_resource path="res://BaseGuard.scn.xml" type="PackedScene" index="2"></ext_resource>
+	<ext_resource path="res://player.scn.xml" type="PackedScene" index="5"></ext_resource>
+	<ext_resource path="res://RotatingGuard.scn.xml" type="PackedScene" index="4"></ext_resource>
+	<ext_resource path="res://base_level.scn.xml" type="PackedScene" index="0"></ext_resource>
 	<ext_resource path="res://PatrollingGuard.xml" type="PackedScene" index="3"></ext_resource>
 	<ext_resource path="res://exit.scn.xml" type="PackedScene" index="6"></ext_resource>
 	<resource type="NavigationPolygon" path="local://2">
@@ -78,7 +78,7 @@
 				<node_path> "Navigation2D/Path2D2/Patrolling Guard" </node_path>
 			</array>
 			<string> "names" </string>
-			<string_array  len="46">
+			<string_array  len="47">
 				<string> "Node2D" </string>
 				<string> "Navigation2D" </string>
 				<string> "TileMap" </string>
@@ -125,6 +125,7 @@
 				<string> "Player" </string>
 				<string> "collision/margin" </string>
 				<string> "Exit" </string>
+				<string> "next_level" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 21 </int>
@@ -133,9 +134,9 @@
 				<node_path> "Navigation2D" </node_path>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="297"> 				-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2, 2, -1, 15, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 1, 10, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 10, 16, 10, 17, 11, 0, 1073741824, 0, 2147483647, 18, 12, 3, 19, 13, 20, 14, 21, 10, 0, 1073741824, 0, 2147483647, 22, 12, 4, 19, 15, 20, 16, 21, 17, 23, 17, 0, 1073741824, 0, 24, 24, -1, 3, 19, 18, 25, 19, 26, 20, 0, 1073741824, 0, 27, 27, -1, 2, 19, 18, 28, 21, 0, 5, 0, 2147483647, 29, 22, 2, 19, 23, 20, 16, 0, 6, -1, 2147483647, 18, -1, 2, 30, 24, 23, 25, 0, 1073741824, 0, 27, 31, -1, 2, 19, 18, 28, 26, 0, 8, 0, 2147483647, 29, 22, 2, 19, 27, 20, 16, 0, 9, -1, 2147483647, 18, -1, 2, 30, 28, 23, 25, 0, 1073741824, 0, 27, 32, -1, 3, 19, 18, 28, 29, 33, 30, 0, 11, 0, 2147483647, 29, 22, 2, 19, 31, 20, 16, 0, 12, -1, 2147483647, 18, -1, 2, 30, 32, 23, 25, 0, 1073741824, 0, 2147483647, 34, 33, 4, 19, 34, 35, 35, 23, 36, 36, 37, 0, 1073741824, 0, 37, 37, -1, 3, 19, 38, 38, 39, 39, 10, 0, 1073741824, 0, 37, 40, -1, 3, 19, 40, 38, 39, 39, 10, 0, 1073741824, 0, 37, 41, -1, 3, 19, 41, 38, 39, 39, 10, 0, 1073741824, 0, 2, 42, -1, 15, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 1, 10, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 10, 16, 10, 17, 42, 0, 1073741824, 0, 2147483647, 43, 43, 2, 19, 44, 44, 45, 0, 1073741824, 0, 2147483647, 45, 46, 1, 19, 47, 0 </int_array>
+			<int_array  len="299"> 				-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2, 2, -1, 15, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 1, 10, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 10, 16, 10, 17, 11, 0, 1073741824, 0, 2147483647, 18, 12, 3, 19, 13, 20, 14, 21, 10, 0, 1073741824, 0, 2147483647, 22, 12, 4, 19, 15, 20, 16, 21, 17, 23, 17, 0, 1073741824, 0, 24, 24, -1, 3, 19, 18, 25, 19, 26, 20, 0, 1073741824, 0, 27, 27, -1, 2, 19, 18, 28, 21, 0, 5, 0, 2147483647, 29, 22, 2, 19, 23, 20, 16, 0, 6, -1, 2147483647, 18, -1, 2, 30, 24, 23, 25, 0, 1073741824, 0, 27, 31, -1, 2, 19, 18, 28, 26, 0, 8, 0, 2147483647, 29, 22, 2, 19, 27, 20, 28, 0, 9, -1, 2147483647, 18, -1, 2, 30, 29, 23, 25, 0, 1073741824, 0, 27, 32, -1, 3, 19, 18, 28, 30, 33, 31, 0, 11, 0, 2147483647, 29, 22, 2, 19, 32, 20, 33, 0, 12, -1, 2147483647, 18, -1, 2, 30, 34, 23, 25, 0, 1073741824, 0, 2147483647, 34, 35, 4, 19, 36, 35, 37, 23, 38, 36, 39, 0, 1073741824, 0, 37, 37, -1, 3, 19, 40, 38, 41, 39, 10, 0, 1073741824, 0, 37, 40, -1, 3, 19, 42, 38, 41, 39, 10, 0, 1073741824, 0, 37, 41, -1, 3, 19, 43, 38, 41, 39, 10, 0, 1073741824, 0, 2, 42, -1, 15, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 1, 10, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 10, 16, 10, 17, 44, 0, 1073741824, 0, 2147483647, 43, 45, 2, 19, 46, 44, 47, 0, 1073741824, 0, 2147483647, 45, 48, 2, 19, 49, 46, 50, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="48" shared="false">
+			<array  len="51" shared="false">
 				<resource  external="0">  </resource>
 				<int> 0 </int>
 				<resource  external="1">  </resource>
@@ -159,18 +160,20 @@
 				<bool> True </bool>
 				<resource  resource_type="Curve2D" path="local://1">  </resource>
 				<resource  external="3">  </resource>
-				<vector2> 0, -122.99 </vector2>
+				<vector2> 0, -122.993 </vector2>
 				<string> "yellow" </string>
 				<int> 4 </int>
 				<resource  resource_type="Curve2D" path="local://3">  </resource>
-				<vector2> -5.37618e-06, -7.62939e-06 </vector2>
+				<vector2> 4.99416, 192 </vector2>
+				<real> -0.000447 </real>
 				<string> "green" </string>
 				<resource  resource_type="Curve2D" path="local://4">  </resource>
 				<dictionary  shared="false">
 					<string> "_editor_collapsed" </string>
 					<bool> True </bool>
 				</dictionary>
-				<vector2> -1.37688e-05, 192 </vector2>
+				<vector2> 128, 378.993 </vector2>
+				<real> 90.000114 </real>
 				<string> "blue" </string>
 				<resource  external="4">  </resource>
 				<vector2> 672, 864 </vector2>
@@ -187,6 +190,7 @@
 				<real> 0.08 </real>
 				<resource  external="6">  </resource>
 				<vector2> 224, 160 </vector2>
+				<string> "res://level10.scn.xml" </string>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
