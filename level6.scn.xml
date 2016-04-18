@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="11" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://tileset1.res.xml" type="TileSet" index="1"></ext_resource>
+	<ext_resource path="res://player.scn.xml" type="PackedScene" index="4"></ext_resource>
 	<ext_resource path="res://exit.scn.xml" type="PackedScene" index="5"></ext_resource>
+	<ext_resource path="res://base_level.scn.xml" type="PackedScene" index="0"></ext_resource>
 	<ext_resource path="res://BaseGuard.scn.xml" type="PackedScene" index="3"></ext_resource>
 	<ext_resource path="res://RotatingGuard.scn.xml" type="PackedScene" index="2"></ext_resource>
-	<ext_resource path="res://base_level.scn.xml" type="PackedScene" index="0"></ext_resource>
-	<ext_resource path="res://player.scn.xml" type="PackedScene" index="4"></ext_resource>
 	<resource type="NavigationPolygon" path="local://1">
 		<vector2_array name="vertices" len="12"> 			288, -416, 288, 224, 96, 32, 96, -96, -32, 224, -32, 32, 96, -224, 96, -416, -352, -224, -32, -96, -32, 416, -352, 416 </vector2_array>
 		<array name="polygons" len="9" shared="false">
@@ -55,7 +55,7 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="42">
+			<string_array  len="41">
 				<string> "Node2D" </string>
 				<string> "Navigation2D" </string>
 				<string> "TileMap" </string>
@@ -86,7 +86,6 @@
 				<string> "direction" </string>
 				<string> "TileMap 2" </string>
 				<string> "Player" </string>
-				<string> "collision/margin" </string>
 				<string> "NavigationPolygonInstance" </string>
 				<string> "visibility/visible" </string>
 				<string> "navpoly" </string>
@@ -96,8 +95,8 @@
 				<string> "light_mask" </string>
 				<string> "LightOccluder2D 2" </string>
 				<string> "Exit" </string>
+				<string> "next_level" </string>
 				<string> "LightOccluder2D 3" </string>
-				<string> "BGM" </string>
 			</string_array>
 			<string> "node_count" </string>
 			<int> 11 </int>
@@ -106,7 +105,7 @@
 				<node_path> "Navigation2D" </node_path>
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="189"> 				-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2, 2, -1, 16, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 1, 10, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 10, 16, 10, 17, 11, 18, 12, 0, 1073741824, 0, 2147483647, 19, 13, 5, 20, 14, 21, 15, 22, 16, 23, 17, 24, 18, 0, 1073741824, 0, 2147483647, 25, 19, 6, 20, 20, 26, 21, 21, 15, 22, 22, 27, 23, 23, 23, 0, 1073741824, 0, 2, 28, -1, 16, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 1, 10, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 10, 16, 10, 17, 24, 18, 25, 0, 1073741824, 0, 2147483647, 29, 26, 2, 20, 27, 30, 28, 0, 1073741824, 0, 31, 31, -1, 4, 32, 7, 20, 29, 33, 30, 34, 31, 0, 1073741824, 0, 35, 35, -1, 2, 36, 32, 37, 10, 0, 1073741824, 0, 35, 38, -1, 2, 36, 33, 37, 10, 0, 1073741824, 0, 2147483647, 39, 34, 1, 20, 35, 0, 1073741824, 0, 35, 40, -1, 2, 36, 36, 37, 10, 0 </int_array>
+			<int_array  len="189"> 				-1, -1, 2147483647, 0, -1, 0, 0, 1073741824, 0, 2, 2, -1, 16, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 1, 10, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 10, 16, 10, 17, 11, 18, 12, 0, 1073741824, 0, 2147483647, 19, 13, 5, 20, 14, 21, 15, 22, 16, 23, 17, 24, 18, 0, 1073741824, 0, 2147483647, 25, 19, 6, 20, 20, 26, 21, 21, 15, 22, 22, 27, 23, 23, 23, 0, 1073741824, 0, 2, 28, -1, 16, 3, 1, 4, 2, 5, 3, 6, 4, 7, 5, 8, 6, 9, 1, 10, 7, 11, 7, 12, 8, 13, 9, 14, 10, 15, 10, 16, 10, 17, 24, 18, 25, 0, 1073741824, 0, 2147483647, 29, 26, 1, 20, 27, 0, 1073741824, 0, 30, 30, -1, 4, 31, 7, 20, 28, 32, 29, 33, 30, 0, 1073741824, 0, 34, 34, -1, 2, 35, 31, 36, 10, 0, 1073741824, 0, 34, 37, -1, 2, 35, 32, 36, 10, 0, 1073741824, 0, 2147483647, 38, 33, 2, 20, 34, 39, 35, 0, 1073741824, 0, 34, 40, -1, 2, 35, 36, 36, 10, 0 </int_array>
 			<string> "variants" </string>
 			<array  len="37" shared="false">
 				<resource  external="0">  </resource>
@@ -143,7 +142,6 @@
 				</dictionary>
 				<resource  external="4">  </resource>
 				<vector2> 1053.69, 341.417 </vector2>
-				<real> 0.08 </real>
 				<vector2> 864, 352 </vector2>
 				<resource  resource_type="NavigationPolygon" path="local://1">  </resource>
 				<bool> True </bool>
@@ -151,6 +149,7 @@
 				<resource  resource_type="OccluderPolygon2D" path="local://3">  </resource>
 				<resource  external="5">  </resource>
 				<vector2> 1056, -32 </vector2>
+				<string> "res://level7.scn.xml" </string>
 				<resource  resource_type="OccluderPolygon2D" path="local://4">  </resource>
 			</array>
 			<string> "version" </string>
