@@ -10,6 +10,7 @@ export var frozen_timeout = 15 # duration of time when we are frozen
 var can_see_player = false
 var is_frozen = false
 var frozen_duration = 0
+var is_alert = true
 
 var _in_fixed_process = true
 
@@ -44,7 +45,7 @@ func _fixed_process(delta):
 	_in_fixed_process = true
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	try_see_player()
-	if can_see_player and player.color != color and !is_frozen:
+	if can_see_player and player.color != color and !is_frozen and is_alert:
 		# Player was spotted, we restart the scene!
 		player.transition_new_scene(get_tree().get_current_scene().get_filename())
 	_in_fixed_process = false
@@ -91,6 +92,10 @@ func try_see_player():
 		can_see_player = false
 
 func set_direction(new_dir):
+	
+	if direction != new_dir:
+		is_alert = false
+		get_node("AlertCooldown").start()
 	direction = new_dir
 	var cone = get_child(1)
 	cone.set_rot(direction * 3.14159 / 2)
@@ -120,3 +125,14 @@ func _on_FrozenTimer_timeout():
 
 func _on_AttackedTimer_timeout():
 	get_node("AttackedParticles").set_emitting(false)
+
+
+func _on_AlertCooldown_timeout():
+	is_alert = true
+
+
+func _on_Rotator_timeout():
+	if not is_frozen:
+		var new_direction = (direction + 1) % 4
+		set_direction(new_direction)
+		get_child(0).idle_ani(direction)

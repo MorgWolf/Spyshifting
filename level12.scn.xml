@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resource_file type="PackedScene" subresource_count="10" version="2.0" version_name="Godot Engine v2.0.stable.official">
+	<ext_resource path="res://PatrollingGuard.xml" type="PackedScene" index="2"></ext_resource>
 	<ext_resource path="res://tileset1.res.xml" type="TileSet" index="1"></ext_resource>
+	<ext_resource path="res://exit.scn.xml" type="PackedScene" index="5"></ext_resource>
+	<ext_resource path="res://BaseGuard.scn.xml" type="PackedScene" index="3"></ext_resource>
 	<ext_resource path="res://player.scn.xml" type="PackedScene" index="4"></ext_resource>
 	<ext_resource path="res://base_level.scn.xml" type="PackedScene" index="0"></ext_resource>
-	<ext_resource path="res://BaseGuard.scn.xml" type="PackedScene" index="3"></ext_resource>
-	<ext_resource path="res://PatrollingGuard.xml" type="PackedScene" index="2"></ext_resource>
-	<ext_resource path="res://exit.scn.xml" type="PackedScene" index="5"></ext_resource>
 	<resource type="Curve2D" path="local://1">
 		<real name="bake_interval"> 5 </real>
 		<dictionary name="_data" shared="false">
@@ -116,7 +116,7 @@
 					<bool> True </bool>
 				</dictionary>
 				<resource  external="2">  </resource>
-				<vector2> 320, 4.35801e-07 </vector2>
+				<vector2> 315.012, 0 </vector2>
 				<real> -180 </real>
 				<real> 2 </real>
 				<vector2> 0, 7.62939e-06 </vector2>

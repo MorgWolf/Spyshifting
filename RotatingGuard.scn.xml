@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<resource_file type="PackedScene" subresource_count="3" version="2.0" version_name="Godot Engine v2.0.stable.official">
+<resource_file type="PackedScene" subresource_count="2" version="2.0" version_name="Godot Engine v2.0.stable.official">
 	<ext_resource path="res://BaseGuard.scn.xml" type="PackedScene" index="0"></ext_resource>
-	<resource type="GDScript" path="local://1">
-		<string name="script/source"> "&#000a;extends Timer&#000a;&#000a;func _ready():&#000a;&#0009;pass&#000a;&#000a;func _on_Rotator_timeout():&#000a;&#0009;var parent = get_parent()&#000a;&#0009;if not parent.is_frozen:&#000a;&#0009;&#0009;var new_direction = (parent.direction + 1) % 4&#000a;&#0009;&#0009;parent.set_direction(new_direction)&#000a;&#0009;&#0009;parent.get_child(0).idle_ani(parent.direction)" </string>
-
-	</resource>
 	<main_resource>
 		<dictionary name="_bundled" shared="false">
 			<string> "base_scene" </string>
 			<int> 0 </int>
 			<string> "conn_count" </string>
-			<int> 1 </int>
+			<int> 2 </int>
 			<string> "conns" </string>
-			<int_array  len="6"> 				2, 2, 13, 12, 2, 0 </int_array>
+			<int_array  len="12"> 				2, 0, 14, 13, 2, 0, 2, 2, 14, 13, 2, 0 </int_array>
 			<string> "editable_instances" </string>
 			<array  len="0" shared="false">
 			</array>
 			<string> "names" </string>
-			<string_array  len="14">
+			<string_array  len="15">
 				<string> "Guard" </string>
 				<string> "AnimatedSprite" </string>
 				<string> "Cone of Vision" </string>
 				<string> "Sprite" </string>
 				<string> "FrozenTimer" </string>
 				<string> "wait_time" </string>
+				<string> "AttackedParticles" </string>
+				<string> "Timer" </string>
+				<string> "AlertCooldown" </string>
 				<string> "Rotator" </string>
 				<string> "process_mode" </string>
 				<string> "one_shot" </string>
 				<string> "autostart" </string>
-				<string> "script/script" </string>
-				<string> "Timer" </string>
 				<string> "_on_Rotator_timeout" </string>
 				<string> "timeout" </string>
 			</string_array>
@@ -39,16 +36,15 @@
 			<array  len="0" shared="false">
 			</array>
 			<string> "nodes" </string>
-			<int_array  len="33"> 				-1, -1, 2147483647, 0, -1, 0, 0, 0, 0, 2147483647, 4, -1, 1, 5, 1, 0, 0, 0, 11, 6, -1, 5, 7, 2, 5, 3, 8, 4, 9, 5, 10, 6, 0 </int_array>
+			<int_array  len="31"> 				-1, -1, 2147483647, 0, -1, 0, 0, 0, 0, 2147483647, 4, -1, 1, 5, 1, 0, 0, 0, 7, 9, -1, 4, 10, 2, 5, 3, 11, 4, 12, 5, 0 </int_array>
 			<string> "variants" </string>
-			<array  len="7" shared="false">
+			<array  len="6" shared="false">
 				<resource  external="0">  </resource>
 				<real> 0.05 </real>
 				<int> 1 </int>
 				<real> 2 </real>
 				<bool> False </bool>
 				<bool> True </bool>
-				<resource  resource_type="Script" path="local://1">  </resource>
 			</array>
 			<string> "version" </string>
 			<int> 2 </int>
