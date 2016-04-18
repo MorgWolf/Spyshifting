@@ -12,5 +12,6 @@ func exit_level():
 
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	if next_level == "":
+		get_node("/root/LevelBGM").stop()
 		next_level = "res://main_menu.scn.xml"
 	player.transition_new_scene(next_level)
