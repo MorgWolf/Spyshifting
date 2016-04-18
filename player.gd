@@ -40,13 +40,8 @@ func _ready():
 	fade_to_black_panel.set_opacity(1)
 
 func _process(delta):
-
-	# get_parent().set_pos(Vector2(-get_pos().x + 8 * 64 - 32, -get_pos().y + 6 * 64 - 32))
-
 	var sprite = get_node("AnimatedSprite")
-
 	var v = 64 * player_speed_tiles
-
 	var vel = Vector2(0, 0)
 	if not ignore_input:
 		if(Input.is_key_pressed(KEY_DOWN)):
@@ -109,7 +104,7 @@ func handle_attack():
 	get_node("AttackParticles/Timer").start()
 	get_node("AttackCooldown").start()
 	if !get_node("/root/globals").audio_muted:
-		get_node("ShapeshiftOn").play()
+		get_node("/root/LevelBGM/SamplePlayer").play("shapeshift")
 	for n in get_tree().get_nodes_in_group("Enemies"):
 		var dist = n.get_global_pos().distance_to(get_global_pos())
 		if dist < min_dist:
@@ -133,7 +128,7 @@ func lose_power(name):
 	# as the latest guard we attacked (it means timer expired)
 	if shapeshift_from == name:
 		if !get_node("/root/globals").audio_muted:
-			get_node("ShapeshiftOff").play()
+			get_node("/root/LevelBGM/SamplePlayer").play("shapeshift_off")
 		shapeshift_from = ""
 		color = "mc"
 		type = ""
@@ -141,8 +136,6 @@ func lose_power(name):
 		update_sprite(sprite)
 		get_node("TextureProgress").set_hidden(true)
 		get_node("TextureProgress/ShapeshiftTimer").stop()
-		
-		
 
 func transition_new_scene(new_scene_name):
 	for n in get_tree().get_nodes_in_group("Ephemerals"):
@@ -152,15 +145,11 @@ func transition_new_scene(new_scene_name):
 	fade_to_black_action_arg = new_scene_name
 	ignore_input = true
 
-	
-
 func _on_Attack_Emitter_Timer_timeout():
 	get_node("AttackParticles").set_emitting(false)
 
-
 func _on_AttackCooldown_timeout():
 	can_attack = true
-
 
 func _on_ShapeshiftTimer_timeout():
 	shapeshift_duration += get_node("TextureProgress/ShapeshiftTimer").get_wait_time()

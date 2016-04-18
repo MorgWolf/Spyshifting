@@ -11,6 +11,7 @@ var can_see_player = false
 var is_frozen = false
 var frozen_duration = 0
 var is_alert = true
+var is_transitioning = false
 
 var _in_fixed_process = true
 
@@ -45,9 +46,12 @@ func _fixed_process(delta):
 	_in_fixed_process = true
 	var player = get_tree().get_nodes_in_group("Player")[0]
 	try_see_player()
-	if can_see_player and player.color != color and !is_frozen and is_alert:
+	if can_see_player and player.color != color and !is_frozen and is_alert and !is_transitioning:
 		# Player was spotted, we restart the scene!
+		if !get_node("/root/globals").audio_muted:
+			get_node("/root/LevelBGM/SamplePlayer").play("alarm", true)
 		player.transition_new_scene(get_tree().get_current_scene().get_filename())
+		is_transitioning = true
 	_in_fixed_process = false
 
 func try_see_player():
